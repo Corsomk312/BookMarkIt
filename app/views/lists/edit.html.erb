@@ -1,0 +1,6 @@
+<h2>Change List Name</h2>
+
+<%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
+  <%= f.text_field :name, placeholder: "#{@list.name}" %>
+  <%= f.submit "Update" %>
+<% end %>

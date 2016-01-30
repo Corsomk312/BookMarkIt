@@ -1,0 +1,10 @@
+<h2>Register</h2>
+
+<%= form_for @user, html: {id: "create-user"} do |f| %>
+  <%= f.text_field :username, placeholder: "username" %>
+  <%= f.text_field :email, placeholder: "email" %>
+  <%= f.password_field :password, placeholder: "password" %>
+  <%= f.text_field :first_name, placeholder: "first name (optional)" %>
+  <%= f.text_field :last_name, placeholder: "last name (optional)" %>
+  <%= f.submit "Create" %>
+<% end %>

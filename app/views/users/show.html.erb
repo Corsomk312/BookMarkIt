@@ -1,0 +1,16 @@
+<h2><%= @user.full_name || @user.username %>'s Profile</h2>
+
+<h3>Lists</h3>
+
+<ul class="user-lists">
+  <% if @user.lists %>
+    <% @user.lists.each do |list| %>
+      <li><button type="button" class="btn btn-success"><%= link_to list.name, list %></button></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<% if @user.id == current_user.id %>
+  <%= button_to "New List",  :new_list, :method => :get %>
+  <%= button_to "Edit Profile",  :edit_user, :method => :get %>
+<% end %>
