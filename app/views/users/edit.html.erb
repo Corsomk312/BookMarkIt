@@ -1,0 +1,8 @@
+<h2>Edit Your Profile</h2>
+
+<%= form_for @user, method: "patch", html: {id: "create-user"} do |f| %>
+  <%= f.text_field :email %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.submit "Create" %>
+<% end %>

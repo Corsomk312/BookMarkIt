@@ -1,0 +1,6 @@
+<h2>Create a New List</h2>
+
+<%= form_for @list, html: {id: "create-list"} do |f| %>
+  <%= f.text_field :name, placeholder: "list name" %>
+  <%= f.submit "Create" %>
+<% end %>

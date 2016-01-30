@@ -1,0 +1,58 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$white: #f0ebd8;
+$lightblue: #748cab;
+$slateblue: #3e5c76;
+$darkblue: #1d2d44;
+$darkestblue: #0d1321;
+
+.navbar-inverse {
+  background-color: $white;
+}
+
+.navbar-inverse .navbar-brand {
+  color: $darkestblue;
+  &:hover {
+    color: $lightblue;
+    }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: $darkestblue;
+    &:hover {
+      color: $lightblue;
+    }
+  }
+
+.btn-success {
+  background-color: $darkblue;
+  border-color: $darkblue;
+  &:hover {
+    background-color: $lightblue;
+    border-color: $lightblue;
+    @include transition(0.5s);
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  margin-left: 20px;
+}
+
+
+/*h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}*/
