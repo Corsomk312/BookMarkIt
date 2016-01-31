@@ -22,11 +22,10 @@
         <ul class="nav navbar-nav">
           <% if session[:user_id] %>
             <li><%= link_to "Home", :root %></li>
-            <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
             <li><%= link_to "Profile (#{current_user.username})", User.find(session[:user_id]) %></li>
+            <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
           <% else %>
             <li><%= link_to "Home", :root %></li>
-            <li><%= link_to "Login", :login %> </li>
             <li><%= link_to "Register", :new_user %></li>
             <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
               <div class="form-group">
