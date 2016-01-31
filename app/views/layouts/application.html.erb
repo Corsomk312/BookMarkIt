@@ -29,10 +29,10 @@
             <li><%= link_to "Login", :login %> </li>
             <li><%= link_to "Register", :new_user %></li>
             <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
-                <div class="form-group">
+              <div class="form-group">
                 <%= f.text_field :username, placeholder: "username", class: "form-control" %>
                 <%= f.password_field :password, placeholder: "password", class: "form-control" %>
-                </div>
+              </div>
               <%= f.submit "Login", class: "btn btn-success" %>
             <% end %>
           <% end %>
