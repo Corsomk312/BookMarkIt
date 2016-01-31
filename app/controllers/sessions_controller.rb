@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to current_user
     else
       flash[:notice] = "username/password combination does not match"
-      redirect_to :login
+      redirect_to :root
     end
   end
 
