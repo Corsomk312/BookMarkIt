@@ -1,6 +1,6 @@
 include CurrentUserHelper # can probably remove this module, as it doesn't work in Services
 
-class ParseUploadedBookmarksFile
+class ParseUploadedBookmarks
 
   # def self.call(file, user)
   #   books = Nokogiri::HTML(file)
