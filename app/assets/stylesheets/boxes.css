@@ -57,6 +57,27 @@ Build the display and rotate on hover
 Transform and style the two planes
 **************************************/
 
+.folder {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius:5%;
+  background-color: #fff;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.folder {
+  border-radius:5%;
+  background-color: #1d2d44;
+  -webkit-transform: translateZ(130px);
+  -moz-transform: translateZ(130px);
+  transform: translateZ(130px);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .website .snapshot,
 .website .details {
   position: absolute;
@@ -118,6 +139,25 @@ Shadow beneath the 3D object
 Website information
 **************************************/
 
+.folder-label {
+  color:white;
+  font-size:1.5em;
+  padding:10%;
+
+}
+
+.folder-image {
+  border-radius:5%;
+  margin-top:2.5%;
+  margin-bottom:10%;
+  margin-left:10%;
+  margin-right:10%;
+  background-image: url('DarkTile.png');
+  height:70%;
+  width:80%;
+  box-shadow: 0px 0px 15px rgba(10,0,0,1);
+}
+
 .snapshot-image {
   border-radius:5%;
   margin-top:2.5%;
@@ -128,6 +168,14 @@ Website information
   height:70%;
   width:80%;
   box-shadow: 0px 0px 15px rgba(10,0,0,1);
+}
+
+
+.list-name {
+  font-size: 1.5em;
+  font-weight:700;
+  padding-left:10px;
+  padding-bottom:5px;
 }
 
 .details header {

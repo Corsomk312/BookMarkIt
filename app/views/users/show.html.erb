@@ -1,15 +1,36 @@
-<h2><%= @user.full_name || @user.username %>'s Profile</h2>
+<h2><%= @user.full_name || @user.username %>'s Bookmark Lists</h2>
 
-<h3>Lists</h3>
+<% if @user.lists %>
+<% @user.lists.each do |list| %>
+<% next if list.bookmarks.length == 0 %>
+<a href="<%="/lists/#{list.id}"%>">
+<li class="display">
+  <div class="website" onclick="return true">
+    <div class="folder">
+      <h3><%= truncate(list.name.capitalize, length: 18, separator: ' ') %></h3>
+      <div class="folder-image">
+      </div>
+    </div>
+    <div class="details folder-list">
+        <div class="list-name"><%= list.name.capitalize %></div>
+        <% list.bookmarks.take(7).each do |bookmark| %>
+          <ul>
+            <li>
+              <a href="<%= bookmark.url %>" target="_blank">
+              <%= truncate(bookmark.name.capitalize, length: 25, separator: ' ') %>
+              </a>
+            </li>
+          </ul>
+        <% end %>
+    </div>
+  </div>
+<% end %>
+<% else %>
+  <p class="text-warning">Sorry but it doesn't look like you have any lists yet :(</p>
+<% end %>
 
-<ul class="user-lists">
-  <% if @user.lists %>
-    <% @user.lists.each do |list| %>
-      <li><button type="button" class="btn btn-success"><%= link_to list.name, list %></button></li>
-    <% end %>
-  <% end %>
-</ul>
 
+<!-- integrate and style this with above -->
 <% if @user.id == current_user.id %>
   <%= button_to "New List",  :new_list, :method => :get %>
   <%= button_to "Edit Profile",  :edit_user, :method => :get %>

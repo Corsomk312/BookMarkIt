@@ -28,3 +28,19 @@ body {
   font-family: 'Lato', Arial, sans-serif;
   color: #fff;
 }
+
+h3 {
+  color: white;
+}
+
+.folder-list {
+  padding-top:5px;
+  font-weight: bold;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.folder-list a {
+  font-size: 1.4em;
+  text-decoration:none;
+}

@@ -9,7 +9,7 @@
 <li class="display">
   <div class="website" onclick="return true">
     <div class="snapshot">
-      <h1><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h1>
+      <h3><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h3>
       <div class="snapshot-image">
       </div>
     </div>
@@ -23,11 +23,14 @@
       </p>
     </div>
   </div>
+</a>
 <% end %>
 <% else %>
-  <p class="text-warning">Sorry but it doesn't look like you have any bookmarks :(</p>
+  <p class="text-warning">Sorry but it doesn't look like you have any bookmarks yet :(</p>
 <% end %>
-<!-- integrate this with above -->
+
+
+<!-- integrate and style this with above -->
 <% if current_user.id == @list.creator.id %>
   <%= button_to "Edit", :edit_list, :method => :get %>
   <%= button_to "Delete", :list, :method => :delete %>
