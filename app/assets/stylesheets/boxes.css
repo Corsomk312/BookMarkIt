@@ -1,0 +1,175 @@
+}
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+body {
+  list-style:none;
+}
+
+.heading h2 {
+  color: #f0ebd8;
+}
+
+.wrapper {
+  margin: 0 auto 100px auto;
+  max-width: 960px;
+}
+
+.stage {
+  list-style: none;
+  padding: 0;
+}
+
+/*************************************
+Build the display and rotate on hover
+**************************************/
+
+.display {
+  width: 260px;
+  height: 260px;
+  margin: 30px;
+  float: left;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.website {
+  width: 260px;
+  height: 260px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(-130px);
+  -moz-transform: translateZ(-130px);
+  transform: translateZ(-130px);
+  -webkit-transition: -webkit-transform 350ms;
+  -moz-transition: -moz-transform 350ms;
+  transition: transform 350ms;
+}
+
+.website:hover {
+  -webkit-transform: rotateY(-78deg) translateZ(20px);
+  -moz-transform: rotateY(-78deg) translateZ(20px);
+  transform: rotateY(-78deg) translateZ(20px);
+}
+
+/*************************************
+Transform and style the two planes
+**************************************/
+
+.website .snapshot,
+.website .details {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius:5%;
+  background-color: #fff;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.website .snapshot  {
+  /*background-image: url('fox.jpg');                       #### WEBSITE SNAPSHOT EXAMPLE*/
+  background-color: #1d2d44;
+  -webkit-transform: translateZ(130px);
+  -moz-transform: translateZ(130px);
+  transform: translateZ(130px);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.website .details {
+  /*background-image: url('fox.jpg');                       #### WEBSITE SNAPSHOT EXAMPLE*/
+  -webkit-transform: rotateY(90deg) translateZ(130px);
+  -moz-transform: rotateY(90deg) translateZ(130px);
+  transform: rotateY(90deg) translateZ(130px);
+  border: 1px solid #B8B5B5;
+  font-size: 0.75em;
+}
+
+/*************************************
+Shadow beneath the 3D object
+**************************************/
+
+.csstransforms3d .website::after {
+  content: '';
+  width: 260px;
+  height: 260px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  -webkit-transform: rotateX(90deg) translateY(130px);
+  -moz-transform: rotateX(90deg) translateY(130px);
+  transform: rotateX(90deg) translateY(130px);
+  -webkit-transition: box-shadow 350ms;
+  -moz-transition: box-shadow 350ms;
+  transition: box-shadow 350ms;
+}
+
+.csstransforms3d .website:hover::after {
+  box-shadow: 20px -5px 50px rgba(0,0,0,0.3);
+}
+
+/*************************************
+Website information
+**************************************/
+
+.snapshot-image {
+  border-radius:5%;
+  margin-top:2.5%;
+  margin-bottom:10%;
+  margin-left:10%;
+  margin-right:10%;
+  background-image: url('fox.jpg');
+  height:70%;
+  width:80%;
+  box-shadow: 0px 0px 15px rgba(10,0,0,1);
+}
+
+.details header {
+  color: #1d2d44;
+  padding: 7px 10px;
+  font-weight: bold;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.details header h1 {
+  margin: 0 0 2px;
+  padding-top: 5px;
+  font-size: 1.4em;
+}
+
+.details header .site-info {
+  padding: 0px 3px;
+}
+
+.details p {
+  padding: 1.2em 1.4em;
+  margin: 2px 0 0;
+  font-weight: 700;
+  color: #666;
+  line-height: 1.4em;
+}
+
+/*************************************
+Fallback
+**************************************/
+.no-csstransforms3d .website .snapshot,
+.no-csstransforms3d .website .details {
+  position: relative;
+}
+
+/*************************************
+Media Queries
+**************************************/
+@media screen and (max-width: 60.75em){
+  .display {
+    float: none;
+    margin: 30px auto 60px;
+  }
+}
