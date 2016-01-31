@@ -1,24 +1,20 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-//= require three.min
-//= require css3drenderer
-//= require trackballcontrols
-//= require tweenjs.min
-//= require_tree .
+		<div id="container"></div>
 
-var camera, scene, renderer;
+		<div id="menu">
+			<button id="table">TABLE</button>
+			<button id="sphere">SPHERE</button>
+			<button id="helix">HELIX</button>
+			<button id="grid">GRID</button>
+		</div>
+
+		<script>
+
+
+			
+// raw(ruby array)
+	
+			var table = <%= raw @table %>;
+			var camera, scene, renderer;
 			var controls;
 
 			var objects = [];
@@ -29,7 +25,7 @@ var camera, scene, renderer;
 
 			function init() {
 
-				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 10000 );
 				camera.position.z = 3000;
 
 				scene = new THREE.Scene();
@@ -40,7 +36,7 @@ var camera, scene, renderer;
 
 					var element = document.createElement( 'div' );
 					element.className = 'element';
-					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+					element.style.backgroundColor = 'rgba(29,45,68,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
 					var number = document.createElement( 'div' );
 					number.className = 'number';
@@ -248,3 +244,4 @@ var camera, scene, renderer;
 
 			}
 
+		</script>

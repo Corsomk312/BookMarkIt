@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
 
-
+  get 'display_bookmarks' => 'display_bookmarks#show'
 
   get '/sessions' => 'sessions#show'
   resources :users, :except => [:index, :destroy]
