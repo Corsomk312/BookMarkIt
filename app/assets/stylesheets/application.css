@@ -22,10 +22,19 @@
 /*=======================
 Edit and delete for user's bookmarks
 ==========================*/
+a.top-corner {
+  position: relative;
+  top: 20px;
+  font-size: 1.8em;
+}
+
 .pull-right {
   margin-top: -50px;
   padding-right: 20px;
 }
+
+/*===========================*/
+form { color: black;}
 
 body {
   padding-top: 60px;
