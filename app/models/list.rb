@@ -5,4 +5,21 @@ class List < ActiveRecord::Base
 
   validates :creator_id, presence: true
   validates :name, presence: true
+
+  def bookmarks_by_name
+    self.bookmarks.sort_by {|bookmark| bookmark.name}
+  end
+
+  def bookmarks_by_age
+    self.bookmarks.sort_by {|bookmark| bookmark.created_at}
+  end
+
+  def bookmarks_by_length
+    self.bookmarks.sort_by {|bookmark| bookmark.url.length}
+  end
+
+  def bookmarks_by_popularity
+    self.bookmarks.sort_by {|bookmark| SavedBookmark.where(bookmark_id: bookmark.id).length}
+  end
+
 end

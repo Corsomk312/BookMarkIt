@@ -39,7 +39,18 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @bookmarks = Bookmark.all
+    case params[:sort]
+    when "name"
+      @bookmarks = @list.bookmarks_by_name
+    when "age"
+      @bookmarks = @list.bookmarks_by_age
+    when "length"
+      @bookmarks = @list.bookmarks_by_length
+    when "popularity"
+      @bookmarks = @list.bookmarks_by_popularity
+    else
+      @bookmarks = @list.bookmarks.reverse
+    end
   end
 
   def update

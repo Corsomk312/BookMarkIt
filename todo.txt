@@ -1,5 +1,9 @@
 Fix bug: trying to logout while not logged in breaks stuff (in the controller, redirect unless @user)
 Fix bug: accessing user profile while not logged in breaks stuff
 
+
+Add feature: user may sort bookmarks alphabetically
+Add feature: user may sort bookmarks by creation date
+Add feature: user may sort lists alphabetically
+Add feature: user may sort lists by creation date
 Add feature: "project name" functions as "home" in navbar
-Add feature: upon login, user receives a success message
