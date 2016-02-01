@@ -1,2 +1,6 @@
 Add feature: "project name" functions as "home" in navbar
 Add feature: sort bookmarks and lists in ascending or descending order
+
+Add feature: trying to upload non-bookmark files will do nothing
+Add feature: user may manually add bookmarks to a list
+Add feature: all 'uncategorized' bookmarks compile in the same folder
