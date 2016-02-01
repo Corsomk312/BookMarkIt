@@ -24,6 +24,7 @@ Edit and delete for user's bookmarks
 ==========================*/
 .pull-right {
   margin-top: -50px;
+  padding-right: 20px;
 }
 
 body {
