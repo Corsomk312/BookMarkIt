@@ -22,6 +22,10 @@
             </li>
           </ul>
         <% end %>
+        <% if current_user.id == @user.id %>
+          <%= button_to "Edit", {action: :edit, id: list.id, controller: "lists"}, method: "get" %>
+          <%= button_to "Delete", {action: :destroy, id: list.id, controller: "lists"}, :method => :delete %>
+        <% end %>
     </div>
   </div>
 <% end %>
