@@ -32,4 +32,7 @@
 
 
 <!-- integrate and style this with above -->
-
+<% if current_user.id == @list.creator.id %>
+  <%= button_to "Edit", :edit_list, :method => :get %>
+  <%= button_to "Delete", :list, :method => :delete %>
+<% end %>
