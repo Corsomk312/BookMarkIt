@@ -1,5 +1,6 @@
 <h2><%= @user.full_name || @user.username %>'s Bookmark Lists</h2>
 
+
 <%= button_to "Sort by Age", :user, method: "get", params: {sort: "age"} %>
 <%= button_to "Sort Alphabetically", :user, method: "get", params: {sort: "name"} %>
 <%= button_to "Sort by Size", :user, method: "get", params: {sort: "size"} %>
@@ -7,6 +8,7 @@
 
 <% if @lists %>
 <% @lists.each do |list| %>
+
 <% next if list.bookmarks.length == 0 %>
 <a href="<%="/lists/#{list.id}"%>">
 <li class="display">
@@ -27,14 +29,20 @@
             </li>
           </ul>
         <% end %>
-        <% if current_user %>
-          <% if current_user.id == @user.id %>
-            <%= button_to "Edit", {action: :edit, id: list.id, controller: "lists"}, method: "get" %>
-            <%= button_to "Delete", {action: :destroy, id: list.id, controller: "lists"}, :method => :delete %>
-          <% else %>
-            <%= button_to "Add to My Lists", {action: :create, list: {list_to_dup: list}, controller: "lists"}, :method => "post" %>
-          <% end %>
+
+    <div class="pull-right">
+        <% if current_user.id == @user.id %>
+
+        <ul>
+          <li><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, {action: :edit, id: list.id, controller: "lists"}, method: "get" %></li>
+          <li><%= link_to '<i class="fa fa-ban"></i>'.html_safe, {action: :destroy, id: list.id, controller: "lists"}, method: "delete" %></li>
+        <% else %>
+          <%= link_to '<i class="fa fa-plus"></i>'.html_safe, {action: :create, list: {list_to_dup: list}, controller: "lists"}, class: "top-corner", :method => "post" %>
+        </ul>
+
+
         <% end %>
+        </div>
     </div>
   </div>
 <% end %>
@@ -43,10 +51,9 @@
 <% end %>
 
 
-<!-- integrate and style this with above -->
-<% if current_user %>
+<div class="container">
   <% if @user.id == current_user.id %>
-    <%= button_to "New List",  :new_list, :method => :get %>
-    <%= button_to "Edit Profile",  :edit_user, :method => :get %>
+    <%= link_to "New List",  :new_list, class: "btn btn-primary spaced", :method => :get %>
+    <%= button_to "Edit Profile",  :edit_user, class: "btn btn-primary spaced", :method => :get %>
   <% end %>
-<% end %>
+</div>
