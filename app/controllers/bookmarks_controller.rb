@@ -4,6 +4,16 @@ class BookmarksController < ApplicationController
   end
 
   def create
+    @list = List.find(params[:list_id])
+    @bookmark = Bookmark.new(bookmark_params)
+    if @bookmark.save
+      SavedBookmark.create(list_id: @list.id, bookmark_id: @bookmark.id)
+      flash[:notice] = "Bookmark successfully saved!"
+      redirect_to :back
+    else
+      flash[:alert] = @bookmark.errors.full_messages.first
+      redirect_to :back
+    end
   end
 
   def new
@@ -19,6 +29,10 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+  end
+
+  def bookmark_params
+    params.require(:bookmark).permit(:name, :url)
   end
 
 end
