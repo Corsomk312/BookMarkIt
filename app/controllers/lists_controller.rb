@@ -46,8 +46,10 @@ class ListsController < ApplicationController
       @bookmarks = @list.bookmarks_by_age
     when "length"
       @bookmarks = @list.bookmarks_by_length
+    when "popularity"
+      @bookmarks = @list.bookmarks_by_popularity
     else
-      @bookmarks = @list.bookmarks
+      @bookmarks = @list.bookmarks.reverse
     end
   end
 
