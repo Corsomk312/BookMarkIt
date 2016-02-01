@@ -1,6 +1,5 @@
 Fix bug: trying to logout while not logged in breaks stuff (in the controller, redirect unless @user)
 Fix bug: accessing user profile while not logged in breaks stuff
-Fix bug: upon registering, user is instructed to login from the homepage
 
 Add feature: "project name" functions as "home" in navbar
 Add feature: upon login, user receives a success message
