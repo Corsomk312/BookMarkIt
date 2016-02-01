@@ -35,6 +35,10 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
+    unless current_user == User.find(@list.creator_id)
+      flash[:alert] = "You must be logged in to edit this"
+      redirect_to :list
+    end
   end
 
   def show
