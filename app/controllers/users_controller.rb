@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user != @user
       flash[:alert] = "You can only edit your own profile!"
-      redirect_to current_user
+      redirect_to @user
     end
   end
 

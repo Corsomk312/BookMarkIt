@@ -27,11 +27,13 @@
             </li>
           </ul>
         <% end %>
-        <% if current_user.id == @user.id %>
-          <%= button_to "Edit", {action: :edit, id: list.id, controller: "lists"}, method: "get" %>
-          <%= button_to "Delete", {action: :destroy, id: list.id, controller: "lists"}, :method => :delete %>
-        <% else %>
-          <%= button_to "Add to My Lists", {action: :create, list: {list_to_dup: list}, controller: "lists"}, :method => "post" %>
+        <% if current_user %>
+          <% if current_user.id == @user.id %>
+            <%= button_to "Edit", {action: :edit, id: list.id, controller: "lists"}, method: "get" %>
+            <%= button_to "Delete", {action: :destroy, id: list.id, controller: "lists"}, :method => :delete %>
+          <% else %>
+            <%= button_to "Add to My Lists", {action: :create, list: {list_to_dup: list}, controller: "lists"}, :method => "post" %>
+          <% end %>
         <% end %>
     </div>
   </div>
@@ -42,7 +44,9 @@
 
 
 <!-- integrate and style this with above -->
-<% if @user.id == current_user.id %>
-  <%= button_to "New List",  :new_list, :method => :get %>
-  <%= button_to "Edit Profile",  :edit_user, :method => :get %>
+<% if current_user %>
+  <% if @user.id == current_user.id %>
+    <%= button_to "New List",  :new_list, :method => :get %>
+    <%= button_to "Edit Profile",  :edit_user, :method => :get %>
+  <% end %>
 <% end %>
