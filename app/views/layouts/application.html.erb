@@ -21,12 +21,12 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <% if session[:user_id] %>
-            <li><%= link_to "Home", :root %></li>
+            <!-- <li><%= link_to "Home", :root %></li> -->
             <li><%= link_to "Profile (#{current_user.username})", User.find(session[:user_id]) %></li>
             <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
           <% else %>
-            <li><%= link_to "Home", :root %></li>
-            <li><%= link_to "Register", :new_user %></li>
+            <!-- <li><%= link_to "Home", :root %></li> -->
+            <!-- <li><%= link_to "Register", :new_user %></li> -->
         </ul>
             <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
               <div class="form-group">
@@ -34,6 +34,9 @@
                 <%= f.password_field :password, placeholder: "password", class: "form-control" %>
               </div>
               <%= f.submit "Login", class: "btn btn-success" %>
+              <% if !session[:user_id] %>
+                <%= link_to "Register", :new_user %>
+              <% end %>
             <% end %>
           <% end %>
       </div>
