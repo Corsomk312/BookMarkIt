@@ -1,5 +1,3 @@
-
-
 class ListsController < ApplicationController
 
   def create

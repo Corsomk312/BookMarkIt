@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :lists, :except => [:index] do
     resources :bookmarks
+    resources :saved_bookmarks, :only => [:destroy]
   end
 
   resources :upload, :only =>[:new, :create, :destroy]
