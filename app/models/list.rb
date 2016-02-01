@@ -5,4 +5,8 @@ class List < ActiveRecord::Base
 
   validates :creator_id, presence: true
   validates :name, presence: true
+
+  def alphabetized_bookmarks
+    self.bookmarks.sort_by {|bookmark| bookmark.name}
+  end
 end
