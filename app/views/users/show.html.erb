@@ -26,7 +26,7 @@
           <%= button_to "Edit", {action: :edit, id: list.id, controller: "lists"}, method: "get" %>
           <%= button_to "Delete", {action: :destroy, id: list.id, controller: "lists"}, :method => :delete %>
         <% else %>
-          <%= button_to "Add to My Lists", {action: :create, list: {name: list.name}, controller: "lists"}, :method => "post" %>
+          <%= button_to "Add to My Lists", {action: :create, list: {list_to_dup: list}, controller: "lists"}, :method => "post" %>
         <% end %>
     </div>
   </div>
