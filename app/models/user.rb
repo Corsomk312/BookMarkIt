@@ -13,4 +13,20 @@ class User < ActiveRecord::Base
   def full_name
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
+
+  def lists_by_age
+    self.lists.sort_by {|list| list.created_at}
+  end
+
+  def lists_by_name
+    self.lists.sort_by {|list| list.name.downcase}
+  end
+
+  def lists_by_popularity
+    self.lists.sort_by {|list| List.where(name: list.name).count}
+  end
+
+  def lists_by_size
+    self.lists.sort_by {|list| list.bookmarks.length}
+  end
 end
