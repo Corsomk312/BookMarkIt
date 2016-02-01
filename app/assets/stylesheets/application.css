@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
@@ -17,6 +18,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+/*=======================
+Edit and delete for user's bookmarks
+==========================*/
+a.btn.btn-primary.spaced {
+  margin: 5px 0 5px 0;
+}
+
+a.top-corner {
+  position: relative;
+  top: 20px;
+  font-size: 1.8em;
+}
+
+.pull-right {
+  margin-top: -50px;
+  padding-right: 20px;
+}
+
+/*===========================*/
+form { color: black;}
 
 body {
   padding-top: 60px;
