@@ -27,6 +27,7 @@
           <% else %>
             <li><%= link_to "Home", :root %></li>
             <li><%= link_to "Register", :new_user %></li>
+        </ul>
             <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
               <div class="form-group">
                 <%= f.text_field :username, placeholder: "username", class: "form-control" %>
@@ -35,7 +36,6 @@
               <%= f.submit "Login", class: "btn btn-success" %>
             <% end %>
           <% end %>
-        </ul>
       </div>
     </div>
   </nav>
