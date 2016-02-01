@@ -3,5 +3,4 @@ Fix bug: accessing user profile while not logged in breaks stuff
 
 
 Add feature: "project name" functions as "home" in navbar
-Fix bug: bookmarks sorted by name consider capitalized names first
 Add feature: sort bookmarks and lists in ascending or descending order
