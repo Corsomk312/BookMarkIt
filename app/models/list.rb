@@ -10,11 +10,11 @@ class List < ActiveRecord::Base
     self.bookmarks.sort_by {|bookmark| bookmark.name}
   end
 
-  def bookmarks_by_creation_date
+  def bookmarks_by_age
     self.bookmarks.sort_by {|bookmark| bookmark.created_at}
   end
 
-  def bookmarks_by_url_lengthg
+  def bookmarks_by_length
     self.bookmarks.sort_by {|bookmark| bookmark.url.length}
   end
 
