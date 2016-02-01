@@ -11,7 +11,7 @@
     <div class="snapshot">
       <h3><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h3>
       <div class="snapshot-image">
-
+        <%= image_tag bookmark.snapshot.url, class:"thumbnail" %>
       </div>
     </div>
     <div class="details">
@@ -32,7 +32,4 @@
 
 
 <!-- integrate and style this with above -->
-<% if current_user.id == @list.creator.id %>
-  <%= button_to "Edit", :edit_list, :method => :get %>
-  <%= button_to "Delete", :list, :method => :delete %>
-<% end %>
+
