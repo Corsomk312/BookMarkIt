@@ -1,5 +1,2 @@
-Fix bug: trying to logout while not logged in breaks stuff (in the controller, redirect unless @user)
-
-
 Add feature: "project name" functions as "home" in navbar
 Add feature: sort bookmarks and lists in ascending or descending order
