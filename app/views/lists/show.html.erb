@@ -2,36 +2,49 @@
   <h2><%= @list.name %></h2>
 </div>
 
-<% if @list.bookmarks %>
-<% @list.bookmarks.each do |bookmark| %>
+<%= button_to "Sort by Age", :list, method: "get", params: {sort: "age"} %>
+<%= button_to "Sort Alphabetically", :list, method: "get", params: {sort: "name"} %>
+<%= button_to "Sort by Url Length", :list, method: "get", params: {sort: "length"} %>
+<%= button_to "Sort by Popularity", :list, method: "get", params: {sort: "popularity"} %>
 
-<a href="<%= bookmark.url %>" target="_blank">
-<li class="display">
-  <div class="website" onclick="return true">
-    <div class="snapshot">
-      <h3><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h3>
-      <div class="snapshot-image">
+<!-- <button id="sort-bookmarks-alphabetically">Sort Alphabetically</button>
+<button id="sort-bookmarks-by-age">Sort by Age</button>
+<button id="sort-bookmarks-by-url-length">Sort by Url Length</button> -->
+
+<% if @bookmarks %>
+
+<!-- this ERB must (?) be within a tag so that jQuery can modify it -->
+  <p id="bookmark-sort"><% @bookmarks.each do |bookmark| %></p>
+
+  <a href="<%= bookmark.url %>" target="_blank">
+  <li class="display">
+    <div class="website" onclick="return true">
+      <div class="snapshot">
+        <h3><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h3>
+        <div class="snapshot-image">
+        </div>
+      </div>
+      <div class="details">
+        <header>
+          <h1><%= bookmark.name.capitalize %></h1>
+          <span class="site-info"></span>    <!-- placeholder for future text -->
+        </header>
+        <p>
+          A cattle baron takes in an orphaned boy and raises him, causing his own son to resent the boy. As they get older the resentment festers into hatred, and eventually the real son frames his stepbrother for fathering an illegitimate child that is actually his, seeing it as an opportunity to get his half-brother out of the way so he can have his father's empire all to himself.
+        </p>
       </div>
     </div>
-    <div class="details">
-      <header>
-        <h1><%= bookmark.name.capitalize %></h1>
-        <span class="site-info"></span>    <!-- placeholder for future text -->
-      </header>
-      <p>
-        A cattle baron takes in an orphaned boy and raises him, causing his own son to resent the boy. As they get older the resentment festers into hatred, and eventually the real son frames his stepbrother for fathering an illegitimate child that is actually his, seeing it as an opportunity to get his half-brother out of the way so he can have his father's empire all to himself.
-      </p>
-    </div>
-  </div>
-</a>
-<% end %>
-<% else %>
-  <p class="text-warning">Sorry but it doesn't look like you have any bookmarks yet :(</p>
+  </a>
+  <% end %>
+  <% else %>
+    <p class="text-warning">Sorry but it doesn't look like you have any bookmarks yet :(</p>
 <% end %>
 
 
 <!-- integrate and style this with above -->
-<% if current_user.id == @list.creator.id %>
-  <%= button_to "Edit", :edit_list, :method => :get %>
-  <%= button_to "Delete", :list, :method => :delete %>
+<% if current_user %>
+  <% if current_user.id == @list.creator.id %>
+    <%= button_to "Edit", :edit_list, :method => :get %>
+    <%= button_to "Delete", :list, :method => :delete %>
+  <% end %>
 <% end %>

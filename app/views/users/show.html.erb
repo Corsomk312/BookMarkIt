@@ -1,10 +1,14 @@
 <h2><%= @user.full_name || @user.username %>'s Bookmark Lists</h2>
 
 
+<%= button_to "Sort by Age", :user, method: "get", params: {sort: "age"} %>
+<%= button_to "Sort Alphabetically", :user, method: "get", params: {sort: "name"} %>
+<%= button_to "Sort by Size", :user, method: "get", params: {sort: "size"} %>
+<%= button_to "Sort by Topic Popularity", :user, method: "get", params: {sort: "popularity"} %>
 
+<% if @lists %>
+<% @lists.each do |list| %>
 
-<% if @user.lists %>
-<% @user.lists.each do |list| %>
 <% next if list.bookmarks.length == 0 %>
 <a href="<%="/lists/#{list.id}"%>">
 <li class="display">
@@ -25,6 +29,7 @@
             </li>
           </ul>
         <% end %>
+
     <div class="pull-right">
         <% if current_user.id == @user.id %>
 
@@ -35,6 +40,7 @@
           <%= link_to '<i class="fa fa-plus"></i>'.html_safe, {action: :create, list: {list_to_dup: list}, controller: "lists"}, class: "top-corner", :method => "post" %>
         </ul>
 
+
         <% end %>
         </div>
     </div>
@@ -43,6 +49,7 @@
 <% else %>
   <p class="text-warning">Sorry but it doesn't look like you have any lists yet :(</p>
 <% end %>
+
 
 <div class="container">
   <% if @user.id == current_user.id %>

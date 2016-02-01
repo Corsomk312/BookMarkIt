@@ -35,11 +35,26 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
+    unless current_user == User.find(@list.creator_id)
+      flash[:alert] = "You must be logged in to edit this"
+      redirect_to :list
+    end
   end
 
   def show
     @list = List.find(params[:id])
-    @bookmarks = Bookmark.all
+    case params[:sort]
+    when "name"
+      @bookmarks = @list.bookmarks_by_name
+    when "age"
+      @bookmarks = @list.bookmarks_by_age
+    when "length"
+      @bookmarks = @list.bookmarks_by_length
+    when "popularity"
+      @bookmarks = @list.bookmarks_by_popularity
+    else
+      @bookmarks = @list.bookmarks.reverse
+    end
   end
 
   def update

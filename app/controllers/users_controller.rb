@@ -20,12 +20,24 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user != @user
       flash[:alert] = "You can only edit your own profile!"
-      redirect_to current_user
+      redirect_to @user
     end
   end
 
   def show
     @user = User.find(params[:id])
+    case params[:sort]
+    when "name"
+      @lists = @user.lists_by_name
+    when "age"
+      @lists = @user.lists_by_age
+    when "popularity"
+      @lists = @user.lists_by_popularity
+    when "size"
+      @lists = @user.lists_by_size
+    else
+      @lists = @user.lists.reverse
+    end
   end
 
   def update
