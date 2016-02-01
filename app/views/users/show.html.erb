@@ -24,8 +24,8 @@
         <% end %>
     <div class="pull-right">
         <% if current_user.id == @user.id %>
-          <%= link_to 'Edit'.html_safe, {action: :edit, id: list.id, controller: "lists"}, method: "get" %>
-          <%= link_to "Delete", {action: :destroy, id: list.id, controller: "lists"}, :method => :delete %>
+          <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, {action: :edit, id: list.id, controller: "lists"}, method: "get" %>
+          <%= link_to '<i class="fa fa-trash"></i>'.html_safe, {action: :destroy, id: list.id, controller: "lists"}, method: "delete" %>
         <% end %>
         </div>
     </div>
