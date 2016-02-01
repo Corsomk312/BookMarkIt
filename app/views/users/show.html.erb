@@ -3,7 +3,7 @@
 <%= button_to "Sort by Age", :user, method: "get", params: {sort: "age"} %>
 <%= button_to "Sort Alphabetically", :user, method: "get", params: {sort: "name"} %>
 <%= button_to "Sort by Size", :user, method: "get", params: {sort: "size"} %>
-<%= button_to "Sort by Popularity", :user, method: "get", params: {sort: "popularity"} %>
+<%= button_to "Sort by Topic Popularity", :user, method: "get", params: {sort: "popularity"} %>
 
 <% if @lists %>
 <% @lists.each do |list| %>
