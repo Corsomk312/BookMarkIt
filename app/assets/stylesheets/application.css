@@ -22,6 +22,10 @@
 /*=======================
 Edit and delete for user's bookmarks
 ==========================*/
+a.btn.btn-primary.spaced {
+  margin: 5px 0 5px 0;
+}
+
 a.top-corner {
   position: relative;
   top: 20px;

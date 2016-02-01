@@ -44,9 +44,9 @@
   <p class="text-warning">Sorry but it doesn't look like you have any lists yet :(</p>
 <% end %>
 
-
-<!-- integrate and style this with above -->
-<% if @user.id == current_user.id %>
-  <%= button_to "New List",  :new_list, :method => :get %>
-  <%= button_to "Edit Profile",  :edit_user, :method => :get %>
-<% end %>
+<div class="container">
+  <% if @user.id == current_user.id %>
+    <%= link_to "New List",  :new_list, class: "btn btn-primary spaced", :method => :get %>
+    <%= button_to "Edit Profile",  :edit_user, class: "btn btn-primary spaced", :method => :get %>
+  <% end %>
+</div>
