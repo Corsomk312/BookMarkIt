@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     redirect_to :root
   end
 
-  def show
-  end
+  # def show
+  # end
 
 end
