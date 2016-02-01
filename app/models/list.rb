@@ -7,7 +7,7 @@ class List < ActiveRecord::Base
   validates :name, presence: true
 
   def bookmarks_by_name
-    self.bookmarks.sort_by {|bookmark| bookmark.name}
+    self.bookmarks.sort_by {|bookmark| bookmark.name.downcase}
   end
 
   def bookmarks_by_age
@@ -15,7 +15,7 @@ class List < ActiveRecord::Base
   end
 
   def bookmarks_by_length
-    self.bookmarks.sort_by {|bookmark| bookmark.url.length}
+    self.bookmarks.sort_by {|bookmark| bookmark.url.count}
   end
 
   def bookmarks_by_popularity
