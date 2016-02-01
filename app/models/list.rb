@@ -6,7 +6,16 @@ class List < ActiveRecord::Base
   validates :creator_id, presence: true
   validates :name, presence: true
 
-  def alphabetized_bookmarks
+  def bookmarks_by_name
     self.bookmarks.sort_by {|bookmark| bookmark.name}
   end
+
+  def bookmarks_by_creation_date
+    self.bookmarks.sort_by {|bookmark| bookmark.created_at}
+  end
+
+  def bookmarks_by_url_lengthg
+    self.bookmarks.sort_by {|bookmark| bookmark.url.length}
+  end
+
 end
