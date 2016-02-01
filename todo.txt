@@ -2,8 +2,6 @@ Fix bug: trying to logout while not logged in breaks stuff (in the controller, r
 Fix bug: accessing user profile while not logged in breaks stuff
 
 
-Add feature: user may sort bookmarks alphabetically
-Add feature: user may sort bookmarks by creation date
-Add feature: user may sort lists alphabetically
-Add feature: user may sort lists by creation date
 Add feature: "project name" functions as "home" in navbar
+Fix bug: bookmarks sorted by name consider capitalized names first
+Add feature: lists keep track of how many times they were forked (by unique users)

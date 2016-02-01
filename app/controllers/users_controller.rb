@@ -26,6 +26,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    case params[:sort]
+    when "name"
+      @lists = @user.lists_by_name
+    when "age"
+      @lists = @user.lists_by_age
+    when "popularity"
+      @lists = @user.lists_by_popularity
+    when "size"
+      @lists = @user.lists_by_size
+    else
+      @lists = @user.lists.reverse
+    end
   end
 
   def update
