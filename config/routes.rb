@@ -8,11 +8,14 @@ Rails.application.routes.draw do
 
   get 'display_bookmarks' => 'display_bookmarks#show'
 
-  get '/sessions' => 'sessions#show'
+  # get '/sessions' => 'sessions#show'
+  # (why did we have that?)
+
   resources :users, :except => [:index, :destroy]
 
   resources :lists, :except => [:index] do
     resources :bookmarks
+    resources :saved_bookmarks, :only => [:destroy]
   end
 
   resources :upload, :only =>[:new, :create, :destroy]

@@ -1,6 +1,22 @@
+<!-- IMPORTANT: need to add authorization to this page! -->
+
 <h2>Change List Name</h2>
 
 <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
   <%= f.text_field :name, placeholder: "#{@list.name}" %>
   <%= f.submit "Update" %>
+<% end %>
+
+<h2>Change List Contents</h2>
+<div id="add-bookmark">
+  <button id="bookmark-button">Add New Bookmark</button>
+  <%= form_for :bookmark, url: list_bookmarks_path(@list), html: {id: "bookmark-form"} do |f| %>
+  <%= f.text_field :name, placeholder: "name" %>
+  <%= f.text_field :url, placeholder: "url" %>
+  <%= f.submit "Add" %>
+  <% end %>
+</div>
+<% @list.saved_bookmarks.each do |saved_bookmark| %>
+  <p><%= saved_bookmark.bookmark.name %></p>
+  <%= button_to "Delete", {action: :destroy, list_id: @list.id, saved_bookmark_id: saved_bookmark.id, controller: "saved_bookmarks"}, :method => :delete %>
 <% end %>
