@@ -15,11 +15,11 @@ class List < ActiveRecord::Base
   end
 
   def bookmarks_by_length
-    self.bookmarks.sort_by {|bookmark| bookmark.url.count}
+    self.bookmarks.sort_by {|bookmark| bookmark.url.length}
   end
 
   def bookmarks_by_popularity
-    self.bookmarks.sort_by {|bookmark| SavedBookmark.where(bookmark_id: bookmark.id).length}
+    self.bookmarks.sort_by {|bookmark| SavedBookmark.where(bookmark_id: bookmark.id).count}
   end
 
 end
