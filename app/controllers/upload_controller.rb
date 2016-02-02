@@ -1,7 +1,12 @@
 class UploadController < ApplicationController
 
   def new
-    @upload = Upload.new
+    if current_user
+      @upload = Upload.new
+    else
+      flash[:alert] = "You must be logged in to upload your bookmarks!"
+      redirect_to :root
+    end
   end
 
   def create
