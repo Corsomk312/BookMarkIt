@@ -22,11 +22,11 @@ feature 'registration page' do
 
   end
 end
-
+exit
 feature 'login' do
-  before :each do
-    User.create(:username => "ronny", :email =>"ronny@gmail.com", :password => "password")
-  end
+  # before :each do
+  #   User.create(:username => "ronny", :email =>"ronny@gmail.com", :password => "password")
+  # end
 
   scenario 'can login as user' do
     visit '/'
