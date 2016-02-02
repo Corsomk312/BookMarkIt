@@ -7,10 +7,23 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
+  validates :auth_token, uniqueness: true
 
   has_secure_password
+  before_save :set_auth_token
 
   def full_name
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  private
+
+  def set_auth_token
+    return if auth_token.present?
+    self.auth_token = generate_auth_token
+  end
+
+  def generate_auth_token
+    SecureRandom.uuid.gsub(/\-/,'')
   end
 end
