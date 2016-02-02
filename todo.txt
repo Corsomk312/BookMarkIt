@@ -8,4 +8,3 @@ Write tests: models
 Add feature: images refresh on S3 when an existing bookmark is added to a new list
 Add feature: picture-finder checks for dead links
 Add feature: multithreading for thumbnail retrieval
-Fix bug: username not showing on user profile if first/last names are nil
