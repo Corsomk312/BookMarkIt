@@ -16,5 +16,12 @@ class Bookmark < ActiveRecord::Base
   validates :url, presence: true
 
   validates_attachment_content_type :snapshot, :content_type => /\Aimage\/.*\Z/
+  validate :has_valid_url
+
+  def has_valid_url
+    unless self.url.start_with?("http")
+      self.errors[:url] = "Url must be valid"
+    end
+  end
 
 end

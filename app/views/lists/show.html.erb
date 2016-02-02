@@ -1,15 +1,21 @@
-<div class="heading">
+<div class="container-cubes ">
+<div class="row">
   <h2><%= @list.name %></h2>
 </div>
 
-<%= button_to "Sort by Age", :list, method: "get", params: {sort: "age"} %>
-<%= button_to "Sort Alphabetically", :list, method: "get", params: {sort: "name"} %>
-<%= button_to "Sort by Url Length", :list, method: "get", params: {sort: "length"} %>
-<%= button_to "Sort by Popularity", :list, method: "get", params: {sort: "popularity"} %>
+<div class="dropdown pull-right role="group">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li class="dropdown-header">Sort folders</li>
+    <li><%= link_to "Alphabetically", :action => "show", :sort => "name" %></li>
+    <li><%= link_to "By popularity", :action => "show", :sort => "popularity" %></li>
+    <li><%= link_to "By default", :action => "show", :sort => "age" %></li>
+    <li role="separator" class="divider"></li>
 
-<!-- <button id="sort-bookmarks-alphabetically">Sort Alphabetically</button>
-<button id="sort-bookmarks-by-age">Sort by Age</button>
-<button id="sort-bookmarks-by-url-length">Sort by Url Length</button> -->
+    <li><%= link_to "Edit this folder", :action => "edit" %></li>
+  </ul>
+</div>
 
 <% if @bookmarks %>
 
@@ -39,13 +45,4 @@
   <% end %>
   <% else %>
     <p class="text-warning">Sorry but it doesn't look like you have any bookmarks yet :(</p>
-<% end %>
-
-
-<!-- integrate and style this with above -->
-<% if current_user %>
-  <% if current_user.id == @list.creator.id %>
-    <%= button_to "Edit", :edit_list, :method => :get %>
-    <%= button_to "Delete", :list, :method => :delete %>
-  <% end %>
 <% end %>
