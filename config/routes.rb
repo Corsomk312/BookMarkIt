@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'display_bookmarks#show'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   post 'extension/login' => 'extension#create' #, :defaults => { :format => 'json'}
   get 'extension/login' => 'extension#new'
-
 
   get 'display_bookmarks' => 'display_bookmarks#show'
 
