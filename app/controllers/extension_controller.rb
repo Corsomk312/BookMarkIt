@@ -15,6 +15,26 @@ skip_before_action :verify_authenticity_token
     response["X-Authentication-Token"] = generate_auth_token
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @list = @user.lists
+
+    @list_info = @list.map do |list|
+      [list.name, list.id]
+    end
+    render :json => {listArray: @list_info}
+  end
+
+  def new_bookmark
+    puts params
+    @list = List.find(params[:list_id])
+
+
+    # @list.bookmarks.build(name: params[:bookmark_name][:name])
+    # @list.save
+
+  end
+
   protected
 
   def authenticate
