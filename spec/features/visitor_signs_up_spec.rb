@@ -29,27 +29,20 @@ feature 'upon logged in a user can' do
   end
 
   scenario 'can login as user' do
-    # visit '/'
-    # within('.navbar-form') do
-    #   fill_in 'username', with: "ronny"
-    #   fill_in 'password', with: "ronny"
-    # end
-    # click_button "Login"
-    # save_and_open_page
     login
     expect(page).to have_content "Successfully logged in!"
   end
 
-  # scenario 'create a new list' do
-  #   login
-  #   visit '/lists/new'
-  #   save_and_open_page
-  #   within('#create-list') do
-  #     fill_in "list_name", with: "List"
-  #   end
-  #   click_button "Create"
-  #   expect(page).to have_content "List successfully created!"
-  # end
+  scenario 'create a new list' do
+    login
+    visit '/lists/new'
+
+    within('#create-list') do
+      fill_in "list_name", with: "List"
+    end
+    click_button "Create"
+    expect(page).to have_content "List successfully created!"
+  end
 end
 
 def login
