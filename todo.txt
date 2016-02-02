@@ -3,3 +3,5 @@ Write tests: models
 Add feature: images refresh on S3 when an existing bookmark is added to a new list
 Add feature: picture-finder checks for dead links
 Add feature: multithreading for thumbnail retrieval
+Add feature: uploading/adding bookmarks checks uniqueness of name/url
+Add feature: user cannot create two folders by the same title (i.e. "Cooking(copy1)")
