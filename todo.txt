@@ -8,4 +8,3 @@ Write tests: database
 Write tests: models
 Add feature: images refresh on S3 when an existing bookmark is added to a new list
 Add feature: picture-finder checks for dead links
-Add feature: upon /logout, message varies according to previous session status
