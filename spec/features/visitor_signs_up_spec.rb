@@ -23,4 +23,21 @@ feature 'registration page' do
   end
 end
 
+feature 'login' do
+  before :each do
+    User.create(:username => "ronny", :email =>"ronny@gmail.com", :password => "password")
+  end
+
+  scenario 'can login as user' do
+    visit '/'
+    within('.navbar-form') do
+      fill_in 'username', with: "ronny"
+      fill_in 'password', with: "password"
+    end
+    click_button "Login"
+    # save_and_open_page
+    expect(page).to have_content "Successfully logged in!"
+  end
+end
+
 
