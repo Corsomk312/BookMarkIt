@@ -43,7 +43,7 @@ feature 'upon logged in a user can' do
     login
     visit '/lists/new'
     save_and_open_page
-    within('form#create-list') do
+    within('#create-list') do
       fill_in "list_name", with: "List"
     end
     click_button "Create"
