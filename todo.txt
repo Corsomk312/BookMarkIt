@@ -6,3 +6,6 @@ Add feature: multithreading for thumbnail retrieval
 Add feature: uploading/adding bookmarks checks uniqueness of name/url
 Add feature: user cannot create two folders by the same title (i.e. "Cooking(copy1)")
 Add feature: following other users
+Add feature: validates bookmark url
+Fix bug: /logout doesn't clear the session when db is reset
+Add feature: user profile pics

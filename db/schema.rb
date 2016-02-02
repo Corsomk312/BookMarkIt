@@ -11,20 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201194801) do
+ActiveRecord::Schema.define(version: 20160202195425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookmarks", force: :cascade do |t|
-    t.string   "name",                  null: false
-    t.text     "url",                   null: false
-    t.string   "snapshot_file_name"
-    t.string   "snapshot_content_type"
-    t.integer  "snapshot_file_size"
-    t.datetime "snapshot_updated_at"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "name",       null: false
+    t.text     "url",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lists", force: :cascade do |t|
@@ -39,6 +35,16 @@ ActiveRecord::Schema.define(version: 20160201194801) do
     t.integer  "bookmark_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "snapshots", force: :cascade do |t|
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.integer  "bookmark_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "uploads", force: :cascade do |t|

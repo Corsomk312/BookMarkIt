@@ -3,7 +3,7 @@
   <h2><%= @list.name %></h2>
 </div>
 
-<div class="dropdown pull-right role="group">
+<div class="dropdown pull-right" role="group">
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
@@ -19,7 +19,6 @@
 
 <% if @bookmarks %>
 
-<!-- this ERB must (?) be within a tag so that jQuery can modify it -->
   <p id="bookmark-sort"><% @bookmarks.each do |bookmark| %></p>
 
   <a href="<%= bookmark.url %>" target="_blank">
@@ -28,7 +27,9 @@
       <div class="snapshot">
         <h3><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h3>
         <div class="snapshot-image">
-          <%= image_tag bookmark.snapshot.url, class:"thumbnail" %>
+          <% if bookmark.snapshot %>
+            <%= image_tag bookmark.snapshot.thumbnail.url, class:"thumbnail" %>
+          <% end %>
         </div>
       </div>
       <div class="details">
@@ -43,6 +44,6 @@
     </div>
   </a>
   <% end %>
-  <% else %>
-    <p class="text-warning">Sorry but it doesn't look like you have any bookmarks yet :(</p>
+<% else %>
+  <p class="text-warning">Sorry but it doesn't look like you have any bookmarks yet :(</p>
 <% end %>
