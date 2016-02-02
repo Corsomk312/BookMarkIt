@@ -1,12 +1,17 @@
 class UploadController < ApplicationController
 
   def new
-    @upload = Upload.new
+    if current_user
+      @upload = Upload.new
+    else
+      flash[:alert] = "You must be logged in to upload your bookmarks!"
+      redirect_to :root
+    end
   end
 
   def create
     @bookmark_html = params[:upload][:upload_file_name].read
-    ParseUploadedBookmarksFile.call(@bookmark_html, current_user)
+    ParseUploadedBookmarks.call(@bookmark_html, current_user)
     redirect_to user_path(current_user)
   end
 

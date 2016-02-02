@@ -22,6 +22,7 @@
       <div class="snapshot">
         <h3><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h3>
         <div class="snapshot-image">
+          <%= image_tag bookmark.snapshot.url, class:"thumbnail" %>
         </div>
       </div>
       <div class="details">

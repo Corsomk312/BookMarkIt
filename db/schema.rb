@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128203827) do
+ActiveRecord::Schema.define(version: 20160201194801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookmarks", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.text     "url",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                  null: false
+    t.text     "url",                   null: false
+    t.string   "snapshot_file_name"
+    t.string   "snapshot_content_type"
+    t.integer  "snapshot_file_size"
+    t.datetime "snapshot_updated_at"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "lists", force: :cascade do |t|
@@ -59,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160128203827) do
     t.datetime "profile_pic_updated_at"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "auth_token"
   end
 
 end

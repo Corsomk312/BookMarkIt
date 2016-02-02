@@ -18,8 +18,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
-    flash[:notice] = "Logged out"
+    if current_user
+      session.clear
+      flash[:notice] = "Logged out"
+    else
+      flash[:alert] = "Already logged out!"
+    end
     redirect_to :root
   end
 
