@@ -15,9 +15,9 @@ class ParseUploadedBookmarks
   def self.create(uncategorized, stuff_in_folders, folder_headings, user)
     if uncategorized.length > 0
       if user.lists.where(name: "uncategorized").length > 0
-        new_list = user.lists.create(name: "uncategorized")
-      else
         new_list = user.lists.where(name: "uncategorized").first
+      else
+        new_list = user.lists.create(name: "uncategorized")
       end
       uncategorized.each do |bookmark_info|
         if Bookmark.where(name: bookmark_info[0], url: bookmark_info[1]).length == 0
