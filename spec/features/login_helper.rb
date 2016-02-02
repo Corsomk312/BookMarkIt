@@ -9,4 +9,3 @@ require "rails_helper"
 #     Teacher.delete_all
 #     Teacher.create(name: "Zell", :email => 'zell@gmail.com', :password => 'zell')
 #   end
-# dnc
