@@ -7,6 +7,8 @@ class ParseUploadedBookmarks
     uncategorized = stuff.xpath('//a[@href]').map {|link| [link.text.strip, link["href"]]} - stuff.xpath('//dl/dl/dl//a[@href]').map {|link| [link.text.strip, link["href"]]}
     stuff_in_folders = stuff.xpath('//dl/dl/dl').map {|x| x.search('./dt//a[@href]').map {|link| [link.text.strip, link["href"]]}}
     folder_headings = stuff.xpath('//h3').map {|thing| thing.text}[1..-1]
+    return false if uncategorized == [] && stuff_in_folders == []
+
     self.create(uncategorized, stuff_in_folders, folder_headings, user)
   end
 
@@ -46,10 +48,11 @@ class ParseUploadedBookmarks
   end
 
   def self.save_snapshot_to_s3(new_bookmark, bookmark_info)
-    file = File.open(AddSnapshot.call(bookmark_info[1]))
-    new_bookmark.snapshot = file
-    file.close
-    new_bookmark.save!
+    if new_bookmark.save
+      file = File.open(AddSnapshot.call(bookmark_info[1]))
+      new_bookmark.snapshot = file
+      file.close
+    end
   end
 
   def self.parse(urls)

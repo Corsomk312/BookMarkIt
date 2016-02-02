@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Successfully registered!"
+      flash[:notice] = "Successfully registered and logged in!"
+      session[:user_id] = @user.id
       redirect_to :root
     else
       flash[:alert] = @user.errors.full_messages.first
