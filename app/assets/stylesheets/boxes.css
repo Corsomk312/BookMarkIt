@@ -164,12 +164,16 @@ Website information
   margin-bottom:10%;
   margin-left:10%;
   margin-right:10%;
-  background-image: url('fox.jpg');
-  height:70%;
-  width:80%;
+  /*background-image: url('fox.jpg');*/
+  /*height:70%;*/
+  /*width:80%;*/
   box-shadow: 0px 0px 15px rgba(10,0,0,1);
 }
 
+.thumbnail {
+  max-height: 100%;
+  max-width: 100%;
+}
 
 .list-name {
   font-size: 1.5em;
