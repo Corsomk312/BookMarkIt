@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <title>BookmarkViewer</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <title>BookmarkIt</title>
+  <%= stylesheet_link_tag    'application', 'custom', 'boxes', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -24,7 +23,6 @@
           <% if session[:user_id] %>
             <!-- <li><%= link_to "Home", :root %></li> -->
             <li><%= link_to "Profile (#{current_user.username})", User.find(session[:user_id]) %></li>
-            <li><%= link_to "Upload", :new_upload %></li>
             <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
           <% else %>
             <!-- <li><%= link_to "Home", :root %></li> -->

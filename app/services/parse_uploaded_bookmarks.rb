@@ -7,12 +7,18 @@ class ParseUploadedBookmarks
     uncategorized = stuff.xpath('//a[@href]').map {|link| [link.text.strip, link["href"]]} - stuff.xpath('//dl/dl/dl//a[@href]').map {|link| [link.text.strip, link["href"]]}
     stuff_in_folders = stuff.xpath('//dl/dl/dl').map {|x| x.search('./dt//a[@href]').map {|link| [link.text.strip, link["href"]]}}
     folder_headings = stuff.xpath('//h3').map {|thing| thing.text}[1..-1]
+    return false if uncategorized == [] && stuff_in_folders == []
+
     self.create(uncategorized, stuff_in_folders, folder_headings, user)
   end
 
   def self.create(uncategorized, stuff_in_folders, folder_headings, user)
     if uncategorized.length > 0
-      new_list = user.lists.create(name: "uncategorized")
+      if user.lists.where(name: "uncategorized").length > 0
+        new_list = user.lists.create(name: "uncategorized")
+      else
+        new_list = user.lists.where(name: "uncategorized").first
+      end
       uncategorized.each do |bookmark_info|
         if Bookmark.where(name: bookmark_info[0], url: bookmark_info[1]).length == 0
           new_bookmark = Bookmark.new(name: bookmark_info[0], url: bookmark_info[1])

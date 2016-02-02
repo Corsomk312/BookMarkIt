@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Successfully registered and logged in!"
       session[:user_id] = @user.id
-      redirect_to :root
+      redirect_to current_user
     else
       flash[:alert] = @user.errors.full_messages.first
       redirect_to :new_user

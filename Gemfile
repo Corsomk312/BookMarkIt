@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
@@ -39,14 +38,10 @@ gem 'phantomjs'
 #phantomjs.rb to enable phantomjs interface with ruby
 gem 'phantomjs.rb'
 
-
-########################################################
-
 #AWS S3 for remote storage and access of website thumbnails
 gem 'aws-sdk', '< 2.0' # AWS SDK
 
 ########################################################
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
