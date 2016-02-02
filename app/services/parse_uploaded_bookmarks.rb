@@ -15,14 +15,16 @@ class ParseUploadedBookmarks
   def self.create(uncategorized, stuff_in_folders, folder_headings, user)
     if uncategorized.length > 0
       if user.lists.where(name: "uncategorized").length > 0
-        new_list = user.lists.create(name: "uncategorized")
-      else
         new_list = user.lists.where(name: "uncategorized").first
+      else
+        new_list = user.lists.create(name: "uncategorized")
       end
       uncategorized.each do |bookmark_info|
         if Bookmark.where(name: bookmark_info[0], url: bookmark_info[1]).length == 0
           new_bookmark = Bookmark.new(name: bookmark_info[0], url: bookmark_info[1])
-          save_snapshot_to_s3(new_bookmark, bookmark_info)
+          if new_bookmark.save
+            save_snapshot_to_s3(new_bookmark)
+          end
           new_list.saved_bookmarks.create(bookmark_id: new_bookmark.id)
 
         else
@@ -38,7 +40,7 @@ class ParseUploadedBookmarks
           stuff_in_folders[index].each do |bookmark_info|
             if Bookmark.where(name: bookmark_info[0], url: bookmark_info[1]).length == 0
               new_bookmark = Bookmark.new(name: bookmark_info[0], url: bookmark_info[1])
-              save_snapshot_to_s3(new_bookmark, bookmark_info)
+              save_snapshot_to_s3(new_bookmark)
               new_list.saved_bookmarks.create(bookmark_id: new_bookmark.id)
 
             else
@@ -51,12 +53,13 @@ class ParseUploadedBookmarks
 
   end
 
-  def self.save_snapshot_to_s3(new_bookmark, bookmark_info)
-    if new_bookmark.save
-      file = File.open(AddSnapshot.call(bookmark_info[1]))
-      new_bookmark.snapshot = file
-      file.close
-    end
+  def self.save_snapshot_to_s3(new_bookmark)
+    file = File.open(AddSnapshot.call(new_bookmark.url))
+    new_snapshot = Snapshot.new(bookmark_id: new_bookmark.id)
+    # or: pass snap args there! ^^^^
+    new_snapshot.thumbnail = file # snapshot.save
+    file.close
+    new_snapshot.save! # snapshot.save
   end
 
   def self.parse(urls)
