@@ -7,4 +7,4 @@ Write tests: database
 Write tests: models
 Add feature: images refresh on S3 when an existing bookmark is added to a new list
 Add feature: picture-finder checks for dead links
-Fix bug: user can press Upload button before adding a file
+Add feature: tryna upload a bad file results in an error message

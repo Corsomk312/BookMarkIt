@@ -10,9 +10,14 @@ class UploadController < ApplicationController
   end
 
   def create
-    @bookmark_html = params[:upload][:upload_file_name].read
-    ParseUploadedBookmarks.call(@bookmark_html, current_user)
-    redirect_to user_path(current_user)
+    if params[:upload]
+      @bookmark_html = params[:upload][:upload_file_name].read
+      ParseUploadedBookmarks.call(@bookmark_html, current_user)
+      redirect_to user_path(current_user)
+    else
+      flash[:alert] = "You need to select a file first!"
+      redirect_to :new_upload
+    end
   end
 
   def destroy
