@@ -12,8 +12,12 @@ class UploadController < ApplicationController
   def create
     if params[:upload]
       @bookmark_html = params[:upload][:upload_file_name].read
-      ParseUploadedBookmarks.call(@bookmark_html, current_user)
-      redirect_to user_path(current_user)
+      if ParseUploadedBookmarks.call(@bookmark_html, current_user) == false
+        flash[:alert] = "Invalid or empty file!"
+        redirect_to :new_upload
+      else
+        redirect_to user_path(current_user)
+      end
     else
       flash[:alert] = "You need to select a file first!"
       redirect_to :new_upload

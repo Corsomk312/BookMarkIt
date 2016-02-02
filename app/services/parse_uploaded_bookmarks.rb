@@ -7,6 +7,8 @@ class ParseUploadedBookmarks
     uncategorized = stuff.xpath('//a[@href]').map {|link| [link.text.strip, link["href"]]} - stuff.xpath('//dl/dl/dl//a[@href]').map {|link| [link.text.strip, link["href"]]}
     stuff_in_folders = stuff.xpath('//dl/dl/dl').map {|x| x.search('./dt//a[@href]').map {|link| [link.text.strip, link["href"]]}}
     folder_headings = stuff.xpath('//h3').map {|thing| thing.text}[1..-1]
+    return false if uncategorized == [] && stuff_in_folders == []
+
     self.create(uncategorized, stuff_in_folders, folder_headings, user)
   end
 
