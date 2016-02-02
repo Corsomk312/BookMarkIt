@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
     self.lists.sort_by {|list| list.bookmarks.length}
   end
 
-  pgrivate
+  private
 
   def set_auth_token
     return if auth_token.present?
