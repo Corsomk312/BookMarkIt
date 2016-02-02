@@ -1,3 +1,30 @@
+// $.(document).ready(function() {
+
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -35,7 +62,7 @@ var camera, scene, renderer;
 				scene = new THREE.Scene();
 
 				// table
-				//i += 5 is to retrieve only the element 
+				//i += 5 is to retrieve only the element
 				for ( var i = 0; i < table.length; i += 5 ) {
 
 					var element = document.createElement( 'div' );
@@ -71,7 +98,7 @@ var camera, scene, renderer;
 					var object = new THREE.Object3D();
 					//lines up columns and positions in center of page
 					object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
-					//lines up rows and centers 
+					//lines up rows and centers
 					object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
 
 					targets.table.push( object );
@@ -149,7 +176,7 @@ var camera, scene, renderer;
 
 				//
 
-				//controls speed of rotation and what not 
+				//controls speed of rotation and what not
 				controls = new THREE.TrackballControls( camera, renderer.domElement );
 				controls.rotateSpeed = 0.5;
 				controls.minDistance = 500;

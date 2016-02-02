@@ -2,13 +2,25 @@ class ListsController < ApplicationController
 
   def create
     @user = current_user
-    @list = @user.lists.new(list_params)
-    if @list.save
-      flash[:notice] = "List successfully created!"
-      redirect_to @user
+    if params[:list][:list_to_dup]
+      old_list = List.find(params[:list][:list_to_dup].to_i)
+      @list = old_list.dup
+      @list.update_attributes(creator_id: @user.id)
+      old_list.saved_bookmarks.to_a.each do |saved_bookmark|
+        new_saved_bookmark = saved_bookmark.dup
+        new_saved_bookmark.update_attributes(list_id: @list.id)
+      end
+      flash[:notice] = "Successfully added list!"
+      redirect_to :back
     else
-      flash[:alert] = @list.errors.full_messages.first
-      redirect_to :new_list
+      @list = @user.lists.new(list_params)
+      if @list.save
+        flash[:notice] = "List successfully created!"
+        redirect_to @user
+      else
+        flash[:alert] = @list.errors.full_messages.first
+        redirect_to :new_list
+      end
     end
   end
 
@@ -23,11 +35,26 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
+    unless current_user == User.find(@list.creator_id)
+      flash[:alert] = "You must be logged in to edit this"
+      redirect_to :list
+    end
   end
 
   def show
     @list = List.find(params[:id])
-    @bookmarks = Bookmark.all
+    case params[:sort]
+    when "name"
+      @bookmarks = @list.bookmarks_by_name
+    when "age"
+      @bookmarks = @list.bookmarks_by_age
+    when "length"
+      @bookmarks = @list.bookmarks_by_length
+    when "popularity"
+      @bookmarks = @list.bookmarks_by_popularity
+    else
+      @bookmarks = @list.bookmarks.reverse
+    end
   end
 
   def update
@@ -49,7 +76,7 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :list_to_dup)
   end
 
 end

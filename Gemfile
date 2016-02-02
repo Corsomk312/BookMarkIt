@@ -22,15 +22,29 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.6'
-
+gem "font-awesome-rails"
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
 #paperclip for chrome html bookmark file and image uploads
-gem "paperclip", "~> 4.3"
+gem 'paperclip', '~> 4.3'
 
 #nokogiri for parsing html file prior to persisting bookmarks
-gem "nokogiri"
+gem 'nokogiri'
+
+#phantomjs for grabbing thumbnail snapshots of webpages
+gem 'phantomjs'
+
+#phantomjs.rb to enable phantomjs interface with ruby
+gem 'phantomjs.rb'
+
+
+########################################################
+
+#AWS S3 for remote storage and access of website thumbnails
+gem 'aws-sdk', '< 2.0' # AWS SDK
+
+########################################################
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -43,6 +57,7 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'dotenv-rails'
   gem 'byebug'
 end
 
