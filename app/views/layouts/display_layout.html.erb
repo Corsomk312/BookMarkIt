@@ -23,7 +23,6 @@
           <% if session[:user_id] %>
             <!-- <li><%= link_to "Home", :root %></li> -->
             <li><%= link_to "Profile (#{current_user.username})", User.find(session[:user_id]) %></li>
-            <li><%= link_to "Upload", :new_upload %></li>
             <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
           <% else %>
             <!-- <li><%= link_to "Home", :root %></li> -->

@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'display_bookmarks#show'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
   post 'extension/login' => 'extension#create' #, :defaults => { :format => 'json'}
   get 'extension/login' => 'extension#new'
   post 'extension/lists' => 'extension#show'
   post 'extension/bookmark' => 'extension#new_bookmark'
-
 
   get 'display_bookmarks' => 'display_bookmarks#show'
 
