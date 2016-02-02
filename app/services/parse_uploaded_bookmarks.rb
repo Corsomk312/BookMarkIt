@@ -52,11 +52,11 @@ class ParseUploadedBookmarks
   end
 
   def self.save_snapshot_to_s3(new_bookmark, bookmark_info)
-    if new_bookmark.save
+    # if new_bookmark.save
       file = File.open(AddSnapshot.call(bookmark_info[1]))
       new_bookmark.snapshot = file
       file.close
-    end
+    # end
   end
 
   def self.parse(urls)
