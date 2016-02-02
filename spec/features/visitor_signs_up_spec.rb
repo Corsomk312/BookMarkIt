@@ -26,18 +26,37 @@ end
 feature 'login' do
   before :each do
     User.create(:username => "ronny", :email =>"ronny@gmail.com", :password => "password")
-  endgi
+  end
 
-  scenario 'can login as user' do
-    visit '/'
-    within('.navbar-form') do
-      fill_in 'username', with: "ronny"
-      fill_in 'password', with: "password"
+  # scenario 'can login as user' do
+  #   visit '/'
+  #   within('.navbar-form') do
+  #     fill_in 'username', with: "ronny"
+  #     fill_in 'password', with: "password"
+  #   end
+  #   click_button "Login"
+  #   # save_and_open_page
+  #   expect(page).to have_content "Successfully logged in!"
+  # end
+
+  scenario 'can create a new list' do
+    login
+    visit '/lists/new'
+    save_and_open_page
+    within('form#create-list') do
+      fill_in "list_name", with: "List"
     end
-    click_button "Login"
-    # save_and_open_page
-    expect(page).to have_content "Successfully logged in!"
+    click_button "Create"
+    expect(page).to have_content "List successfully created!"
   end
 end
 
+def login
+  visit '/'
+   within('.navbar-form') do
+      fill_in 'username', with: "ronny"
+      fill_in 'password', with: "password"
+    end
+  click_button "Login"
+end
 
