@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   before_save :set_auth_token
 
   def full_name
-    return nil if self.first_name + self.last_name == ""
+    return nil if self.first_name == "" && self.last_name == ""
     "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 

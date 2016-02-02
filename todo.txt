@@ -1,8 +1,5 @@
 Add feature: all 'uncategorized' bookmarks compile in the same folder
 
-Redesign: list sort buttons are a drop-down table
-Redesign: bookmark sort buttons are a drop-down table
-Add feature: sort bookmarks and lists in ascending or descending order
 Write tests: database
 Write tests: models
 Add feature: images refresh on S3 when an existing bookmark is added to a new list
