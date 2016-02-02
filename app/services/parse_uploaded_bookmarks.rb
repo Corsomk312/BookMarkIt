@@ -53,6 +53,7 @@ class ParseUploadedBookmarks
 
   end
 
+
   def self.save_snapshot_to_s3(new_bookmark)
     file = File.open(AddSnapshot.call(new_bookmark.url))
     new_snapshot = Snapshot.new(bookmark_id: new_bookmark.id)
