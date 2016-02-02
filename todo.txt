@@ -1,5 +1,3 @@
-Add feature: all 'uncategorized' bookmarks compile in the same folder
-
 Write tests: database
 Write tests: models
 Add feature: images refresh on S3 when an existing bookmark is added to a new list
