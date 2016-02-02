@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'home page' do
   scenario 'welcomes the user' do
     visit '/'
-    expect(page).to have_content 'Welcome'
+    expect(page).to have_content 'Bookmark It!'
   end
 end
 
@@ -23,7 +23,7 @@ feature 'registration page' do
   end
 end
 
-feature 'login' do
+feature 'upon logged in a user can' do
   before :each do
     User.create(:username => "ronny", :email =>"ronny@gmail.com", :password => "password")
   end
@@ -39,7 +39,7 @@ feature 'login' do
   #   expect(page).to have_content "Successfully logged in!"
   # end
 
-  scenario 'can create a new list' do
+  scenario 'create a new list' do
     login
     visit '/lists/new'
     save_and_open_page
@@ -55,7 +55,7 @@ def login
   visit '/'
    within('.navbar-form') do
       fill_in 'username', with: "ronny"
-      fill_in 'password', with: "password"
+      fill_in 'password', with: "ronny"
     end
   click_button "Login"
 end
