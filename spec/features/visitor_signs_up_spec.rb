@@ -24,9 +24,9 @@ feature 'registration page' do
 end
 
 feature 'login' do
-  # before :each do
-  #   User.create(:username => "ronny", :email =>"ronny@gmail.com", :password => "password")
-  # end
+  before :each do
+    User.create(:username => "ronny", :email =>"ronny@gmail.com", :password => "password")
+  endgi
 
   scenario 'can login as user' do
     visit '/'
