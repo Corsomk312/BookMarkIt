@@ -5,6 +5,7 @@ class UploadController < ApplicationController
   end
 
   def create
+    puts params
     @bookmark_html = params[:upload][:upload_file_name].read
     ParseUploadedBookmarks.call(@bookmark_html, current_user)
     redirect_to user_path(current_user)
