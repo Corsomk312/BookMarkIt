@@ -1,13 +1,13 @@
 <!-- IMPORTANT: need to add authorization to this page! -->
 
-<h2>Change List Name</h2>
+<h2>Rename folder</h2>
 
 <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
   <%= f.text_field :name, placeholder: "#{@list.name}" %>
   <%= f.submit "Update" %>
 <% end %>
 
-<h2>Change List Contents</h2>
+<h2>Update folder contents</h2>
 <div id="add-bookmark">
   <button id="bookmark-button">Add New Bookmark</button>
   <%= form_for :bookmark, url: list_bookmarks_path(@list), html: {id: "bookmark-form"} do |f| %>
