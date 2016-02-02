@@ -1,5 +1,4 @@
 Add feature: "project name" functions as "home" in navbar
-Add feature: trying to upload non-bookmark files will do nothing
 Add feature: all 'uncategorized' bookmarks compile in the same folder
 Redesign: list sort buttons are a drop-down table
 Redesign: bookmark sort buttons are a drop-down table
@@ -8,3 +7,4 @@ Write tests: database
 Write tests: models
 Add feature: images refresh on S3 when an existing bookmark is added to a new list
 Add feature: picture-finder checks for dead links
+Fix bug: user can press Upload button before adding a file
