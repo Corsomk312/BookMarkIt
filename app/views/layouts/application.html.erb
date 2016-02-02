@@ -20,6 +20,7 @@
         </button>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
+        <div class="pull-right">
         <ul class="nav navbar-nav">
           <% if session[:user_id] %>
             <!-- <li><%= link_to "Home", :root %></li> -->
@@ -30,6 +31,7 @@
             <!-- <li><%= link_to "Home", :root %></li> -->
             <!-- <li><%= link_to "Register", :new_user %></li> -->
         </ul>
+      </div>
             <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
               <div class="form-group">
                 <%= f.text_field :username, placeholder: "username", class: "form-control" %>
