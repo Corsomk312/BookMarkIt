@@ -1,7 +1,6 @@
 Add feature: "project name" functions as "home" in navbar
 Add feature: trying to upload non-bookmark files will do nothing
 Add feature: all 'uncategorized' bookmarks compile in the same folder
-Add feature: registering automatically logs a user in
 Redesign: list sort buttons are a drop-down table
 Redesign: bookmark sort buttons are a drop-down table
 Add feature: sort bookmarks and lists in ascending or descending order
@@ -9,3 +8,4 @@ Write tests: database
 Write tests: models
 Add feature: images refresh on S3 when an existing bookmark is added to a new list
 Add feature: picture-finder checks for dead links
+Add feature: upon /logout, message varies according to previous session status
