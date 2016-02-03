@@ -3,6 +3,9 @@ require 'aws-sdk'
 
 class AddSnapshot
 
+  ### ITERATE OVER LISTS HERE AND CALL RUNPHANTOM ON EACH URL
+  ### CHANGE SELF.CALL TO RUNPHANTOM & CALL HERE
+
   def self.call(url)
     filename = create_filename(url)
     Phantomjs.run('app/services/capturesnap.js', url, filename)
