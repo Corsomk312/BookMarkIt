@@ -3,66 +3,66 @@
 <div class="container-cubes" id="padding-top">
   <div class="row">
     <div class="col-md-10">
-    <h2><%= @user.full_name || @user.username %>'s Folders</h2>
+      <h2><%= @user.full_name || @user.username %>'s Folders</h2>
 
-    <div class="dropdown pull-right role="group">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li class="dropdown-header">Sort folders</li>
-        <li><%= link_to "Alphabetically", :action => "show", :sort => "name" %></li>
-        <li><%= link_to "By number of links", :action => "show", :sort => "size" %></li>
-        <li><%= link_to "By popularity", :action => "show", :sort => "popularity" %></li>
-        <li><%= link_to "By default", :action => "show", :sort => "age" %></li>
-        <li role="separator" class="divider"></li>
-        <li><%= link_to "Create new folder", :controller => "lists", :action => "new" %></li>
-        <li><%= link_to "Edit your profile", :action => "edit" %></li>
-      </ul>
+      <div class="dropdown pull-right role="group">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li class="dropdown-header">Sort folders</li>
+          <li><%= link_to "Alphabetically", :action => "show", :sort => "name" %></li>
+          <li><%= link_to "By number of links", :action => "show", :sort => "size" %></li>
+          <li><%= link_to "By popularity", :action => "show", :sort => "popularity" %></li>
+          <li><%= link_to "By default", :action => "show", :sort => "age" %></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to "Create new folder", :controller => "lists", :action => "new" %></li>
+          <li><%= link_to "Edit your profile", :action => "edit" %></li>
+        </ul>
+      </div>
     </div>
-  </div>
 
 
-  <% if @lists %>
-  <% @lists.each do |list| %>
+    <% if @lists %>
+    <% @lists.each do |list| %>
 
-  <% next if list.bookmarks.length == 0 %>
-  <a href="<%="/lists/#{list.id}"%>">
-  <li class="display">
-    <div class="website" onclick="return true">
-      <div class="folder">
-        <h3><%= truncate(list.name.capitalize, length: 18, separator: ' ') %></h3>
-        <div class="folder-image">
+    <% next if list.bookmarks.length == 0 %>
+    <a href="<%="/lists/#{list.id}"%>">
+    <li class="display">
+      <div class="website" onclick="return true">
+        <div class="folder">
+          <h3><%= truncate(list.name.capitalize, length: 18, separator: ' ') %></h3>
+          <div class="folder-image">
+          </div>
+        </div>
+        <div class="details folder-list">
+            <div class="list-name">
+              <%= list.name.capitalize %>
+              <div class="pull-right">
+                <% if current_user.id == @user.id %>
+                <ul>
+                  <li><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, {action: :edit, id: list.id, controller: "lists"}, method: "get" %></li>
+                  <li><%= link_to '<i class="fa fa-ban"></i>'.html_safe, {action: :destroy, id: list.id, controller: "lists"}, method: "delete" %></li>
+                <% else %>
+                  <%= link_to '<i class="fa fa-plus"></i>'.html_safe, {action: :create, list: {list_to_dup: list}, controller: "lists"}, class: "top-corner", :method => "post" %>
+                </ul>
+                <% end %>
+              </div>
+            </div>
+            <% list.bookmarks.take(6).each do |bookmark| %>
+              <ul class="book-list">
+                <li>
+                  <a href="<%= bookmark.url %>" target="_blank">
+
+                  <%= truncate(bookmark.name.capitalize, length: 25, separator: ' ') %>
+                  </a>
+                </li>
+              </ul>
+            <% end %>
         </div>
       </div>
-      <div class="details folder-list">
-          <div class="list-name">
-            <%= list.name.capitalize %>
-            <div class="pull-right">
-              <% if current_user.id == @user.id %>
-              <ul>
-                <li><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, {action: :edit, id: list.id, controller: "lists"}, method: "get" %></li>
-                <li><%= link_to '<i class="fa fa-ban"></i>'.html_safe, {action: :destroy, id: list.id, controller: "lists"}, method: "delete" %></li>
-              <% else %>
-                <%= link_to '<i class="fa fa-plus"></i>'.html_safe, {action: :create, list: {list_to_dup: list}, controller: "lists"}, class: "top-corner", :method => "post" %>
-              </ul>
-              <% end %>
-            </div>
-          </div>
-          <% list.bookmarks.take(6).each do |bookmark| %>
-            <ul class="book-list">
-              <li>
-                <a href="<%= bookmark.url %>" target="_blank">
-
-                <%= truncate(bookmark.name.capitalize, length: 25, separator: ' ') %>
-                </a>
-              </li>
-            </ul>
-          <% end %>
-      </div>
-    </div>
-  <% end %>
-  <% else %>
-    <p class="text-warning">Sorry but it doesn't look like you have any lists yet :(</p>
-  <% end %>
-</div>
+    <% end %>
+    <% else %>
+      <p class="text-warning">Sorry but it doesn't look like you have any lists yet :(</p>
+    <% end %>
+  </div>
 </div>
