@@ -24,8 +24,8 @@ Build the display and rotate on hover
 **************************************/
 
 .display {
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   margin: 30px;
   float: left;
   -webkit-perspective: 1000px;
@@ -34,8 +34,8 @@ Build the display and rotate on hover
 }
 
 .website {
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -59,8 +59,8 @@ Transform and style the two planes
 
 .folder {
   position: absolute;
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   border-radius:5%;
   background-color: #fff;
   -webkit-backface-visibility: hidden;
@@ -81,8 +81,8 @@ Transform and style the two planes
 .website .snapshot,
 .website .details {
   position: absolute;
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   border-radius:5%;
   background-color: #fff;
   -webkit-backface-visibility: hidden;
@@ -93,9 +93,9 @@ Transform and style the two planes
 .website .snapshot  {
   /*background-image: url('fox.jpg');                       #### WEBSITE SNAPSHOT EXAMPLE*/
   background-color: #1d2d44;
-  -webkit-transform: translateZ(130px);
-  -moz-transform: translateZ(130px);
-  transform: translateZ(130px);
+  -webkit-transform: translateZ(101px);
+  -moz-transform: translateZ(101px);
+  transform: translateZ(101px);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -104,7 +104,7 @@ Transform and style the two planes
   /*background-image: url('fox.jpg');                       #### WEBSITE SNAPSHOT EXAMPLE*/
   -webkit-transform: rotateY(90deg) translateZ(130px);
   -moz-transform: rotateY(90deg) translateZ(130px);
-  transform: rotateY(90deg) translateZ(130px);
+  transform: rotateY(90deg) translateZ(96px);
   border: 1px solid #B8B5B5;
   font-size: 0.75em;
 }
@@ -115,8 +115,8 @@ Shadow beneath the 3D object
 
 .csstransforms3d .website::after {
   content: '';
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   bottom: 0;
   box-shadow: 0 30px 50px rgba(0,0,0,0.3);
