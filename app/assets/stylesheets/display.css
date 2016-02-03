@@ -17,6 +17,8 @@ Displaying bookmarks -- Ronny
         color: #ffffff;
       }*/
 
+      .center { text-align: center; }
+
       #info {
         position: absolute;
         width: 100%;
@@ -30,7 +32,7 @@ Displaying bookmarks -- Ronny
       }
 
       #menu {
-        position: absolute;
+        /*position: absolute;*/
         bottom: 20px;
         width: 100%;
         text-align: center;
