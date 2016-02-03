@@ -75,5 +75,4 @@ group :development do
   gem 'pry-rails'
 end
 
-ruby "2.1.6"
 
