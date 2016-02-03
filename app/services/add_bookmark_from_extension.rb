@@ -5,7 +5,7 @@ class AddBookmarkFromExtension
     bookmark_info = [bookmark_name, url]
     new_bookmark = Bookmark.new(name: bookmark_name, url: url)
     new_bookmark.save
-    ParseUploadedBookmarks.save_snapshot_to_s3(new_bookmark)
+    ParseBookmarks.save_snapshot_to_s3(new_bookmark)
     saved_bookmark = SavedBookmark.create(list_id: list.id, bookmark_id: new_bookmark.id)
   end
 

@@ -1,4 +1,4 @@
-class ParseUploadedBookmarks
+class ParseBookmarks
 
   def self.call(file, user)
 
