@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
     @errors = @user.errors.full_messages
@@ -54,6 +58,20 @@ class UsersController < ApplicationController
 
   def edit_user_params
     params.require(:user).permit(:email, :first_name, :last_name)
+  end
+
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
 end

@@ -2,7 +2,13 @@
 <div class="container-cubes">
 <div class="row">
 <h2><%= @user.full_name || @user.username %>'s Folders</h2>
+<h3>
+  <section class="stats">
+    <%= render 'shared/following_stats' %>
+    <%= render 'shared/follow_form' if current_user %>
+  </section>
 
+</h3>
 <div class="dropdown pull-right role="group">
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
   <span class="caret"></span></button>
