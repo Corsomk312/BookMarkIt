@@ -2,7 +2,7 @@ class GetThumbnails
 
   def self.call(thumblist)
     thumblist.each do |id|
-      save_snapshot_to_s3(Bookmark.find(id))
+      ThumbnailsWorker.perform_async(id)
     end
   end
 

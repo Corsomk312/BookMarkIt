@@ -9,7 +9,7 @@ class ParseBookmarks
     folder_headings = stuff.xpath('//h3').map {|thing| thing.text}[1..-1]
     return false if uncategorized == [] && stuff_in_folders == []
     thumblist = self.create(uncategorized, stuff_in_folders, folder_headings, user)
-    ThumbnailsWorker.perform_async(thumblist)
+    GetThumbnails.call(thumblist)
   end
 
   def self.create(uncategorized, stuff_in_folders, folder_headings, user)
