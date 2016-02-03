@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'display_bookmarks#show'
+  # root 'display_bookmarks#show'
+
+  root 'home#index'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

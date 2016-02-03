@@ -12,6 +12,7 @@ class DisplayBookmarksController < ApplicationController
 			end
 			@x += 1
 		  p "#{val.name}", "", " ", "#{@x}", "#{@y}"
+		  # '<a href='"#{val.url}"'>"#{val.name}"</a>'
 		end
 		@table = table.flatten
 	end
