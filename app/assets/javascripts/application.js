@@ -23,6 +23,8 @@
 //= require css3drenderer
 //= require trackballcontrols
 //= require tweenjs.min
+//= require greyscale
+//= require jquery.easing.min.js
 //= require_tree .
 
 var camera, scene, renderer;

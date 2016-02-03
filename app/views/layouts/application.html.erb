@@ -24,26 +24,32 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#download">Download</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+                <div class="pull-right">
+        <ul class="nav navbar-nav">
+          <% if session[:user_id] %>
+            <!-- <li><%= link_to "Home", :root %></li> -->
+            <li><%= link_to "Profile (#{current_user.username})", User.find(session[:user_id]) %></li>
+            <li><%= link_to "Upload", :new_upload %></li>
+            <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
+          <% else %>
+            <!-- <li><%= link_to "Home", :root %></li> -->
+            <!-- <li><%= link_to "Register", :new_user %></li> -->
+        </ul>
+      </div>
+            <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
+              <div class="form-group">
+                <%= f.text_field :username, placeholder: "username", class: "form-control" %>
+                <%= f.password_field :password, placeholder: "password", class: "form-control" %>
+              </div>
+              <%= f.submit "Login", class: "btn btn-success" %>
+              <% if !session[:user_id] %>
+                <%= link_to "Register", :new_user %>
+              <% end %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </nav>
 
 
 
