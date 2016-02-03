@@ -1,6 +1,12 @@
 
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
+h3.bookmark-title {
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+
 body {
   list-style:none;
 }
