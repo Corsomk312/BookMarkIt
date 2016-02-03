@@ -27,4 +27,9 @@ class SessionsController < ApplicationController
     redirect_to :root
   end
 
+  def demolish
+    session.clear
+    redirect_to :root
+  end
+
 end
