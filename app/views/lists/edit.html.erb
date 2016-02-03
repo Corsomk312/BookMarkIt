@@ -6,7 +6,7 @@
     <div class="form-group">
       <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
         <%= f.text_field :name, placeholder: "#{@list.name}" %>
-        <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= f.submit "Update", class: "btn btn-default" %>
       <% end %>
     </div>
   </form>
@@ -18,7 +18,7 @@
       <%= form_for :bookmark, url: list_bookmarks_path(@list), html: {id: "bookmark-form"}, class: "form-inline" do |f| %>
       <%= f.text_field :name, placeholder: "name", class: "form-control" %>
       <%= f.text_field :url, placeholder: "url", class: "form-control" %>
-      <%= f.submit "Add", class: "btn btn-primary" %>
+      <%= f.submit "Add", class: "btn btn-default" %>
       <% end %>
     </div>
   </div>
