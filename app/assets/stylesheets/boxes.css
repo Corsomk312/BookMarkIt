@@ -6,6 +6,8 @@ h3.bookmark-title {
   padding-left: 15px;
 }
 
+h3.fo
+
 
 body {
   list-style:none;
@@ -77,9 +79,9 @@ Transform and style the two planes
 .folder {
   border-radius:5%;
   background-color: #1d2d44;
-  -webkit-transform: translateZ(130px);
-  -moz-transform: translateZ(130px);
-  transform: translateZ(130px);
+  -webkit-transform: translateZ(105px);
+  -moz-transform: translateZ(105px);
+  transform: translateZ(105px);
   background-size: cover;
   background-repeat: no-repeat;
 }
