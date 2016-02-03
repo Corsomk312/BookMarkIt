@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#demolish'
   post 'extension/login' => 'extension#create' #, :defaults => { :format => 'json'}
   get 'extension/login' => 'extension#new'
   post 'extension/lists' => 'extension#show'

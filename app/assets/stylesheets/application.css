@@ -95,3 +95,8 @@ h3 {
 .btn-primary {
   border radius:5%;
 }
+
+.thumbnail {
+  padding:0px;
+  border: 1px solid black;
+}
