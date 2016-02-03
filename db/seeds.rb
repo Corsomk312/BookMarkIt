@@ -886,5 +886,5 @@ User.create(first_name: "jill", last_name: "jilsen", username: "jill", email: "j
 
 puts user
 
-ParseUploadedBookmarks.call(bookmark_html, user.first)
-# ParseUploadedBookmarks.call(bookmark_html, user.last)
+ParseBookmarks.call(bookmark_html, user.first)
+# ParseBookmarks.call(bookmark_html, user.last)
