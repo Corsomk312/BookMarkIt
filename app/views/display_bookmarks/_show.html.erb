@@ -1,10 +1,10 @@
 
-   <div id="menu">
-            <button id="table">TABLE</button>
-            <button id="sphere">SPHERE</button>
-            <button id="helix">HELIX</button>
-            <button id="grid">GRID</button>
-        </div>
+		<div id="menu">
+			<button id="table">TABLE</button>
+			<button id="sphere">SPHERE</button>
+			<button id="helix">HELIX</button>
+			<button id="grid">GRID</button>
+		</div>
 
 		<script>
 
@@ -22,7 +22,7 @@
 
 			function init() {
 
-				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 10000 );
 				camera.position.z = 3000;
 
 				scene = new THREE.Scene();
@@ -63,9 +63,9 @@
 					//brings them together?
 					var object = new THREE.Object3D();
 					//lines up columns and positions in center of page
-					object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
+					object.position.x = ( table[ i + 3 ] * 220 ) - 1330;
 					//lines up rows and centers
-					object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+					object.position.y = - ( table[ i + 4 ] * 260 ) + 990;
 
 					targets.table.push( object );
 
