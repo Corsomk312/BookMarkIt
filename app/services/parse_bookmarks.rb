@@ -8,10 +8,8 @@ class ParseBookmarks
     stuff_in_folders = stuff.xpath('//dl/dl/dl').map {|x| x.search('./dt//a[@href]').map {|link| [link.text.strip, link["href"]]}}
     folder_headings = stuff.xpath('//h3').map {|thing| thing.text}[1..-1]
     return false if uncategorized == [] && stuff_in_folders == []
-    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     thumblist = self.create(uncategorized, stuff_in_folders, folder_headings, user)
     ThumbnailsWorker.perform_async(thumblist)
-    # ThumbnailsWorker.perform_async(thumblist)
   end
 
   def self.create(uncategorized, stuff_in_folders, folder_headings, user)

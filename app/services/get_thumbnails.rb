@@ -1,14 +1,13 @@
 class GetThumbnails
 
   def self.call(thumblist)
-    puts "RECEIVED TASK FROM WORKER"
     thumblist.each do |id|
       save_snapshot_to_s3(Bookmark.find(id))
     end
   end
 
   def self.save_snapshot_to_s3(new_bookmark)
-    file = File.open(AddSnapshot.call(new_bookmark.url))
+    file = File.open(AddSnapshot.call(new_bookmark.url, new_bookmark.id))
     new_snapshot = Snapshot.new(bookmark_id: new_bookmark.id)
     new_snapshot.thumbnail = file # snapshot.save
     file.close
