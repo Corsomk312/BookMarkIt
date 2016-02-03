@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 				@x = 1
 			end
 			@x += 1
-		  p "#{val.name}", "", " ", "#{@x}", "#{@y}"
+		  p "#{val.name}", "#{val.url}", " ", "#{@x}", "#{@y}"
 		end
 		@table = table.flatten
   end

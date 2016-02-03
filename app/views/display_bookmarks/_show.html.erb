@@ -31,9 +31,20 @@
 				//i += 5 is to retrieve only the element
 				for ( var i = 0; i < table.length; i += 5 ) {
 
+
+					var outside = document.createElement('div')
+					outside.className	= 'element';
+
+
+					var link = document.createElement('a');
+					link.setAttribute('href', table[i+1]);
+					link.setAttribute('target', '_blank');
+					outside.appendChild(link)
+
 					var element = document.createElement( 'div' );
 					element.className = 'element';
 					element.style.backgroundColor = 'rgba(29,45,68,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+					link.appendChild(element);
 
 					var number = document.createElement( 'div' );
 					number.className = 'number';
@@ -45,13 +56,13 @@
 					symbol.textContent = table[ i ];
 					element.appendChild( symbol );
 
-					var details = document.createElement( 'div' );
-					details.className = 'details';
-					details.innerHTML = '<a href="http://www.google.com" target="_blank">' + table[ i + 1 ] + '<a/><br>' + table[ i + 2 ];
-					element.appendChild( details );
+					// var details = document.createElement( 'div' );
+					// details.className = 'details';
+					// details.innerHTML = '<a href="http://www.google.com" target="_blank">' + table[ i + 1 ] + '<a/><br>' + table[ i + 2 ];
+					// element.appendChild( details );
 
 					//places element in random place to start
-					var object = new THREE.CSS3DObject( element );
+					var object = new THREE.CSS3DObject( outside );
 					object.position.x = Math.random() * 4000 - 2000;
 					object.position.y = Math.random() * 4000 - 2000;
 					object.position.z = Math.random() * 4000 - 2000;
