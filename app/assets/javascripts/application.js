@@ -18,13 +18,13 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require greyscale
+//= require jquery.easing.min.js
 //= require bootstrap
 //= require three.min
 //= require css3drenderer
 //= require trackballcontrols
 //= require tweenjs.min
-//= require greyscale
-//= require jquery.easing.min.js
 //= require_tree .
 
 var camera, scene, renderer;
