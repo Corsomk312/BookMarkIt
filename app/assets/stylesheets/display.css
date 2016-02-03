@@ -45,7 +45,7 @@ Displaying bookmarks -- Ronny
         border: 1px solid white;
         /*rgba(127,255,255,0.25);*/
         text-align: center;
-        cursor: default;
+        cursor: pointer;
       }
 
       .element:hover {
