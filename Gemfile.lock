@@ -242,7 +242,6 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.5)
   rails_12factor
-  redis
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   screencap
