@@ -6,8 +6,8 @@ class AddSnapshot
   ### ITERATE OVER LISTS HERE AND CALL RUNPHANTOM ON EACH URL
   ### CHANGE SELF.CALL TO RUNPHANTOM & CALL HERE
 
-  def self.call(url)
-    filename = create_filename(url)
+  def self.call(url, id)
+    filename = create_filename(url, id)
     Phantomjs.run('app/services/capturesnap.js', url, filename)
     add_snap_to_bookmark(filename)
   end
@@ -19,11 +19,11 @@ class AddSnapshot
 
   end
 
-  def self.create_filename(url)
+  def self.create_filename(url, id)
     domain_regex = /https*:\/\/w*\.*(\w*\-*\w*)./
     domain = url.match(domain_regex).captures.join("")
-    filename = "../tmp/#{domain}-#{rand(555555..999999)}.jpg"
-    ### STORES TEMP SNAPSHOT IN ../TMP/domain-777777.jpg
+    filename = "tmp/thumbnails/#{domain}-0000#{id}.jpg"
+    ### STORES TEMP SNAPSHOT IN TMP/domain-777777.jpg
   end
 
 end
