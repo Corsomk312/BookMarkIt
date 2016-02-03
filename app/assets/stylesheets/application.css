@@ -21,6 +21,7 @@
 
 
 #padding-top { padding-top: 60px; }
+li.display { list-style-type: none; }
 /*=======================
 
 Edit and delete for user's bookmarks
