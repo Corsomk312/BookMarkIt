@@ -1,0 +1,9 @@
+<div>
+  <ul>
+    <% @users.each do |user| %>
+    <li class="follow-space"><%= link_to "#{user.username.capitalize}", user_path(user) %>
+    (<%= user.followers.count %>
+      followers) </li>
+    <% end %>
+  </ul>
+</div>

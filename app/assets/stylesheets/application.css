@@ -101,3 +101,21 @@ h3 {
   padding:0px;
   border: 1px solid black;
 }
+
+
+.stats {
+  margin-bottom: 5px;
+}
+
+.follow-space {
+  margin-top: 10px;
+}
+
+.no-bullet {
+  list-style-type: none;
+}
+
+.followers {
+  color: #337ab7;
+}
+

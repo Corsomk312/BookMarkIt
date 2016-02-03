@@ -1,9 +1,29 @@
+<div class="container-cubes">
+<div class="row">
+<h2><%= @user.full_name || @user.username %>'s Folders</h2>
+<h3>
+  <section class="stats">
+    <%= render 'shared/following_stats' %>
+    <%= render 'shared/follow_form' if current_user %>s
+  </section>
 
+</h3>
+<div class="dropdown pull-right role="group">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li class="dropdown-header">Sort folders</li>
+    <li><%= link_to "Alphabetically", :action => "show", :sort => "name" %></li>
+    <li><%= link_to "By number of links", :action => "show", :sort => "size" %></li>
+    <li><%= link_to "By popularity", :action => "show", :sort => "popularity" %></li>
+    <li><%= link_to "By default", :action => "show", :sort => "age" %></li>
+    <li role="separator" class="divider"></li>
+    <li><%= link_to "Create new folder", :controller => "lists", :action => "new" %></li>
+    <li><%= link_to "Edit your profile", :action => "edit" %></li>
+  </ul>
+</div>
+</div>
 
-<div class="container-cubes" id="padding-top">
-  <div class="row">
-    <div class="col-md-10">
-      <h2><%= @user.full_name || @user.username %>'s Folders</h2>
 
       <div class="dropdown pull-right role="group">
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Options

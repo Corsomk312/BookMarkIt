@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   # get '/sessions' => 'sessions#show'
   # (why did we have that?)
 
-  resources :users, :except => [:index, :destroy]
+  resources :users, :except => [:destroy] do
+    member do
+      get :following, :followers
+    end
+  end
 
   resources :lists, :except => [:index] do
     resources :bookmarks
@@ -25,5 +29,6 @@ Rails.application.routes.draw do
   end
 
   resources :upload, :only =>[:new, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
 end
