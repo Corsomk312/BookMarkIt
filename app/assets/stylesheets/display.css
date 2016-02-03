@@ -1,5 +1,5 @@
 /*************************************
-Displaying bookmarks -- Ronnie
+Displaying bookmarks -- Ronny
 **************************************/
 
   html, body {
@@ -17,6 +17,8 @@ Displaying bookmarks -- Ronnie
         color: #ffffff;
       }*/
 
+      .center { text-align: center; }
+
       #info {
         position: absolute;
         width: 100%;
@@ -30,17 +32,18 @@ Displaying bookmarks -- Ronnie
       }
 
       #menu {
-        position: absolute;
+        /*position: absolute;*/
         bottom: 20px;
         width: 100%;
         text-align: center;
       }
 
       .element {
-        width: 120px;
-        height: 160px;
-        box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
-        border: 1px solid rgba(127,255,255,0.25);
+        width: 220px;
+        height: 260px;
+        /*box-shadow: 0px 0px 12px rgba(0,255,255,0.5);*/
+        border: 1px solid white;
+        /*rgba(127,255,255,0.25);*/
         text-align: center;
         cursor: default;
       }
@@ -55,7 +58,7 @@ Displaying bookmarks -- Ronnie
           top: 20px;
           right: 20px;
           font-size: 12px;
-          color: rgba(127,255,255,0.75);
+          color: rgb(127,255,255);
         }
 
         .element .symbol {
@@ -63,10 +66,10 @@ Displaying bookmarks -- Ronnie
           top: 40px;
           left: 0px;
           right: 0px;
-          font-size: 1em;
+          font-size: 3em;
           font-weight: bold;
-          color: rgba(255,255,255,0.75);
-          text-shadow: 0 0 10px rgba(0,255,255,0.95);
+          color: rgb(255,255,255);
+          /*text-shadow: 0 0 10px rgba(0,255,255,0.95);*/
         }
 
         .element .details {

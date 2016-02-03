@@ -25,6 +25,7 @@ $darkestblue: #0d1321;
 
 .navbar-inverse .navbar-nav > li > a {
     color: $darkestblue;
+    font-size: 1.5em;
     &:hover {
       color: $lightblue;
     }
