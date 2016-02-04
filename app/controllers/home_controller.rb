@@ -5,8 +5,8 @@ class HomeController < ApplicationController
 		@y = 1
 		@x = 1
 		table = bookmarks.map.with_index do |val, index|
-			puts index
-			if index % 19 == 0
+			# puts index
+			if index % 9 == 0
 				@y += 1
 				@x = 1
 			end
