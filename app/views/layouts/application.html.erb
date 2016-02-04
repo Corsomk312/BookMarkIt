@@ -8,6 +8,25 @@
   <%= csrf_meta_tags %>
 </head>
 
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register Here!</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'users/new' %>
+      </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
   <!-- Navigation -->
@@ -36,6 +55,7 @@
           <!-- <li><%= link_to "Register", :new_user %></li> -->
       </ul>
     </div>
+
           <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
             <div class="form-group">
               <%= f.text_field :username, placeholder: "username", class: "form-control" %>
@@ -43,13 +63,20 @@
             </div>
             <%= f.submit "Login", class: "btn btn-success" %>
             <% if !session[:user_id] %>
-              <%= link_to "Register", :new_user %>
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+            Register
+                </button>
+
+
             <% end %>
           <% end %>
         <% end %>
     </div>
   </div>
 </nav>
+
+
+
 
   <%= yield %>
 
