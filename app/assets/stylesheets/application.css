@@ -66,11 +66,6 @@ a.top-corner {
   font-size: 1.8em;
 }
 
-.pull-right {
-  margin-top:;
-  padding-right: 20px;
-  font-size:.75em;
-}
 
 .fa-pencil-square-o {
   color:black;
@@ -125,9 +120,10 @@ h3 {
 
 .thumbnail {
   padding:0px;
+  margin-top: -12%;
+  border-radius:5%;
   border: 1px solid black;
 }
-
 
 .stats {
   margin-bottom: 5px;
@@ -145,3 +141,27 @@ h3 {
   color: #337ab7;
 }
 
+.users-index {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.pull-right {
+  float: right;
+  padding-right: 20px;
+  font-size:.75em;
+}
+
+.list-author a {
+  margin-left: 50px;
+  float: left;
+  color: #42dca3;
+}
+
+.list-author a:hover {
+  color: white;
+}
+
+.test-class {
+  margin-top: -5%;
+}

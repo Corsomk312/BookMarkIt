@@ -8,6 +8,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     if @bookmark.save
       SavedBookmark.create(list_id: @list.id, bookmark_id: @bookmark.id)
+      GetThumbnails.call([@bookmark.id])
       flash[:notice] = "Bookmark successfully saved!"
       redirect_to :back
     else

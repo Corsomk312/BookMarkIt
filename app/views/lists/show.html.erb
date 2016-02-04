@@ -1,9 +1,18 @@
 <div class="container-cubes ">
 <div class="row">
   <h2><%= @list.name.capitalize %></h2>
+  <div class="list-author">
+    <% if current_user == @list.creator %>
+      <h5><%= link_to "Back to Profile", current_user %></h5>
+    <% else %>
+      <h5><%= link_to @list.creator.username, @list.creator %></h5>
+    <% end %>
+  </div>
 </div>
 
-<div class="dropdown pull-right" role="group">
+
+
+<div class="dropdown pull-right test-class" role="group">
   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Options
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
@@ -12,10 +21,10 @@
     <li><%= link_to "By popularity", :action => "show", :sort => "popularity" %></li>
     <li><%= link_to "By default", :action => "show", :sort => "age" %></li>
     <li role="separator" class="divider"></li>
-
     <li><%= link_to "Edit this folder", :action => "edit" %></li>
   </ul>
 </div>
+
 
 <% if @bookmarks %>
 
@@ -27,8 +36,6 @@
       <div class="snapshot">
         <h3 class="bookmark-title"><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h3>
 
-<!-- ###################################################################################### -->
-
         <div class="snapshot-image">
         <% if bookmark.snapshot %>
           <% if bookmark.snapshot.thumbnail %>
@@ -38,9 +45,6 @@
           <%= image_tag "missing-thumb.jpg", class:"thumbnail" %>
         <% end %>
         </div>
-
-<!-- ###################################################################################### -->
-
       </div>
       <div class="details">
         <header>

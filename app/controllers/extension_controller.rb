@@ -27,8 +27,9 @@ skip_before_action :verify_authenticity_token
 
   def new_bookmark
     @list = List.find(params[:list_id])
+    bookmark_name = params[:bookmark_name][5..-1].split("+").join(" ")
 
-    AddBookmarkFromExtension.create_bookmark(params[:list_id], params[:bookmark_name][5..-1], params[:my_url])
+    AddBookmarkFromExtension.create_bookmark(params[:list_id], bookmark_name, params[:my_url])
 
     render :nothing => true
     # render :json => {list: @list}

@@ -2,7 +2,6 @@
   <div class="row">
     <h2>Edit your profile</h2>
     <div class="col-md-3">
-
           <%= form_for @user, method: "patch", html: {id: "create-user"} do |f| %>
             <%= f.label :email %>
             <%= f.text_field :email, class: 'form-control' %>
@@ -15,7 +14,6 @@
             <br>
             <%= f.submit "Update", class: 'btn btn-default' %>
           <% end %>
-
     </div>
   </div>
 </div>
