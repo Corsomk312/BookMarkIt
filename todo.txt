@@ -1,1 +1,1 @@
-Add feature: Trying to navigate to invalid user profile throws a flash message
+Add feature: pluralize '1 followers'
