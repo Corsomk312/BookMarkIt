@@ -2,21 +2,27 @@
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 h3.bookmark-title {
-  padding-top: 10px;
-  padding-left: 15px;
+  padding-top: 7%;
+  padding-left: 10%;
   text-transform: capitalize;
-
+  font-family: 'Arimo', sans-serif;
+  font-weight:500;
 }
-
-
-
 
 body {
   list-style:none;
 }
 
+.folder-list a {
+  color:#353535;
+}
+
+.folder-list a:hover {
+  color:#337ab7;
+}
+
 .heading h2 {
-  color: #f0ebd8;
+  color: #282828;
 }
 
 .wrapper {
@@ -101,7 +107,6 @@ Transform and style the two planes
 }
 
 .website .snapshot  {
-  /*background-image: url('fox.jpg');                       #### WEBSITE SNAPSHOT EXAMPLE*/
   background-color: #1d2d44;
   -webkit-transform: translateZ(101px);
   -moz-transform: translateZ(101px);
@@ -111,7 +116,6 @@ Transform and style the two planes
 }
 
 .website .details {
-  /*background-image: url('fox.jpg');                       #### WEBSITE SNAPSHOT EXAMPLE*/
   -webkit-transform: rotateY(90deg) translateZ(130px);
   -moz-transform: rotateY(90deg) translateZ(130px);
   transform: rotateY(90deg) translateZ(96px);
@@ -158,28 +162,21 @@ Website information
 
 .folder-image {
   border-radius:5%;
- /* margin-top:2.5%;
-  margin-bottom:10%;*/
   margin-left:10%;
   margin-right:10%;
   background-image: url('darktile.png');
-  height:150px;
+  height:130px;
   width: 150px;
   box-shadow: 0px 0px 15px rgba(10,0,0,1);
   position: absolute;
-  top: 38px;
+  top: 28%;
   left: 4px;
 }
 
 .snapshot-image {
   border-radius:5%;
-  margin-top:2.5%;
-  margin-bottom:10%;
   margin-left:10%;
   margin-right:10%;
-  /*background-image: url('fox.jpg');*/
-/*  height:70%;
-  width:80%;*/
   box-shadow: 0px 0px 15px rgba(10,0,0,1);
 }
 
@@ -189,10 +186,12 @@ Website information
 }
 
 .list-name {
-  font-size: 1em;
+  font-size: 1.12em;
   font-weight:700;
+  margin-left:1.5%;
+  margin-top:1.5%;
   padding-left:10px;
-  padding-bottom:5px;
+  padding-bottom:5%;
 }
 
 .details header {

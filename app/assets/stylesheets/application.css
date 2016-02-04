@@ -102,9 +102,10 @@ h3 {
 
 .thumbnail {
   padding:0px;
+  margin-top: -12%;
+  border-radius:5%;
   border: 1px solid black;
 }
-
 
 .stats {
   margin-bottom: 5px;
