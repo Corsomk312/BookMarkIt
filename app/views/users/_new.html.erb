@@ -1,0 +1,27 @@
+
+
+
+    <% @user ||= User.new %>
+
+    <%= form_for @user, html: {id: "create-user"} do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username, placeholder: "username", class: "form-control" %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email, placeholder: "email", class: "form-control" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "password", class: "form-control" %>
+
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder: "first name (optional)", class: "form-control" %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, placeholder: "last name (optional)", class: "form-control" %>
+
+      <div class="modal-footer">
+      <%= f.submit "Create", class: "btn btn-default" %>
+      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+    </div>
+    <% end %>
+

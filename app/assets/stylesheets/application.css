@@ -19,6 +19,27 @@
 @import "bootstrap";
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
+/* Modal */
+.modal-title {color: black;}
+.modal-footer {
+  border-top: 1px solid black;
+  margin-top: 20px;
+  }
+
+/*edit profile*/
+#create-user label {
+  color: black;
+  padding-top: 5px;
+}
+
+#bookmark-form label {
+  color: white;
+  padding-top: 5px;
+}
+
+
+
+
 .col-md-8.col-md-offset-2 {
   background-color: rgba(0,0,0,0.5);
   padding: 45px 0 45px 0;
@@ -29,6 +50,8 @@ li.display { list-style-type: none; }
 
 Edit and delete for user's bookmarks
 ==========================*/
+.edit-list { padding-top: 40px; }
+
 a.btn.btn-primary.spaced {
   margin: 5px 0 5px 0;
 }
@@ -43,11 +66,6 @@ a.top-corner {
   font-size: 1.8em;
 }
 
-.pull-right {
-  margin-top:;
-  padding-right: 20px;
-  font-size:.75em;
-}
 
 .fa-pencil-square-o {
   color:black;
@@ -102,9 +120,10 @@ h3 {
 
 .thumbnail {
   padding:0px;
+  margin-top: -12%;
+  border-radius:5%;
   border: 1px solid black;
 }
-
 
 .stats {
   margin-bottom: 5px;
@@ -125,4 +144,24 @@ h3 {
 .users-index {
   margin-top: 20px;
   margin-left: 30px;
+}
+
+.pull-right {
+  float: right;
+  padding-right: 20px;
+  font-size:.75em;
+}
+
+.list-author a {
+  margin-left: 50px;
+  float: left;
+  color: #42dca3;
+}
+
+.list-author a:hover {
+  color: white;
+}
+
+.test-class {
+  margin-top: -5%;
 }

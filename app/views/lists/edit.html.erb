@@ -1,35 +1,54 @@
 <!-- IMPORTANT: need to add authorization to this page! -->
-<div class="container">
-  <h2>Rename folder</h2>
 
-  <form>
-    <div class="form-group">
-      <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
-        <%= f.text_field :name, placeholder: "#{@list.name}" %>
-        <%= f.submit "Update", class: "btn btn-default" %>
-      <% end %>
+<div class="container edit-list">
+  <div class="row">
+    <div class="col-lg-9">
+      <h2>Rename folder</h2>
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
+            <%= f.text_field :name, placeholder: "#{@list.name}", class: "form-control" %>
+            <br>
+            <%= f.submit "Update", class: "btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </form>
 
-  <h2>Update folder contents</h2>
-  <div id="add-bookmark">
-    <button id="bookmark-button" class="btn btn-default">Add New Bookmark</button>
-    <div class="col-md-2">
-      <%= form_for :bookmark, url: list_bookmarks_path(@list), html: {id: "bookmark-form"}, class: "form-inline" do |f| %>
-      <%= f.text_field :name, placeholder: "name", class: "form-control" %>
-      <%= f.text_field :url, placeholder: "url", class: "form-control" %>
-      <%= f.submit "Add", class: "btn btn-default" %>
-      <% end %>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Update folder contents</h2>
+        <div id="add-bookmark">
+          <button id="bookmark-button" class="btn btn-default">Add New Bookmark</button>
+          <br>
+          <div class="col-md-2">
+            <%= form_for :bookmark, url: list_bookmarks_path(@list), html: {id: "bookmark-form"} do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name, placeholder: "name", class: "form-control" %>
+            <%= f.label :url %>
+            <%= f.text_field :url, placeholder: "url", class: "form-control" %>
+            <br>
+            <%= f.submit "Add", class: "btn btn-default" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-
-
-  <% @list.saved_bookmarks.each do |saved_bookmark| %>
-  <ul>
-    <li><%= saved_bookmark.bookmark.name %>
-    <%= link_to "| Delete", {action: :destroy, list_id: @list.id, saved_bookmark_id: saved_bookmark.id, controller: "saved_bookmarks"}, :method => :delete %></li>
-  </ul>
-  <% end %>
-
+<br>
+  <div class="row">
+    <div col="col-md-3">
+      <h2>Bookmarks</h2>
+     <!--  <div class="col-md-4"> -->
+      <% @list.saved_bookmarks.each do |saved_bookmark| %>
+      <ul>
+        <li><%= saved_bookmark.bookmark.name %>
+        <%= link_to "| Delete", {action: :destroy, list_id: @list.id, saved_bookmark_id: saved_bookmark.id, controller: "saved_bookmarks"}, :method => :delete %></li>
+      </ul>
+      <% end %>
+   <!--  </div> -->
+  </div>
+  </div>
 </div>
