@@ -1,1 +1,2 @@
-Add feature: user profile has link to users page in smaller font
+Add feature: link to users index page
+Add feature: empty folders are visible
