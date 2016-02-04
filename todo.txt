@@ -1,1 +1,1 @@
-Add feature: pluralize '1 followers'
+Add feature: user profile has link to users page in smaller font
