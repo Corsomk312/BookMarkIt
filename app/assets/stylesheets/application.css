@@ -129,9 +129,14 @@ h3 {
   font-size:.75em;
 }
 
-.list-author {
+.list-author a {
   margin-left: 50px;
   float: left;
+  color: #42dca3;
+}
+
+.list-author a:hover {
+  color: white;
 }
 
 .test-class {

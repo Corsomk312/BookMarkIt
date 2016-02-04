@@ -1,4 +1,1 @@
 Add feature: empty folders are visible
-Style: new bookmark form on lists#edit
-Style: following | followers for position, size and grammatical logic
-Style: creator color is "followers" color on list#show
