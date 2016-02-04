@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
     "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
+  def total_bookmarks
+    self.lists.inject(0) {|sum, list| sum + list.saved_bookmarks.count}
+  end
+
   def lists_by_age
     self.lists.sort_by {|list| list.created_at}
   end
