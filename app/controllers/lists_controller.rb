@@ -29,7 +29,7 @@ class ListsController < ApplicationController
       @list = List.new
     else
       flash[:notice] = "You must login to create a new form!"
-      redirect_to :login
+      redirect_to :back
     end
   end
 
