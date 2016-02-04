@@ -36,8 +36,6 @@
       <div class="snapshot">
         <h3 class="bookmark-title"><%= truncate(bookmark.name.capitalize, length: 12, separator: ' ') %></h3>
 
-<!-- ###################################################################################### -->
-
         <div class="snapshot-image">
         <% if bookmark.snapshot %>
           <% if bookmark.snapshot.thumbnail %>
@@ -47,9 +45,6 @@
           <%= image_tag "missing-thumb.jpg", class:"thumbnail" %>
         <% end %>
         </div>
-
-<!-- ###################################################################################### -->
-
       </div>
       <div class="details">
         <header>
