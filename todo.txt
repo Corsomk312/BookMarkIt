@@ -1,4 +1,3 @@
-Add feature: link to user's index page on list#show IF list creator is not current user
 Add feature: empty folders are visible
 Style: new bookmark form on lists#edit
 Style: following | followers for position, size and grammatical logic
