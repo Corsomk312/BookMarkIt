@@ -5,7 +5,7 @@
     <% if current_user == @list.creator %>
       <h5><%= link_to "Back to Profile", current_user %></h5>
     <% else %>
-      <h5>Belongs to <%= link_to @list.creator.username, @list.creator %></h5>
+      <h5><%= link_to @list.creator.username, @list.creator %></h5>
     <% end %>
   </div>
 </div>
