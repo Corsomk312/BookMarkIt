@@ -4,6 +4,7 @@
 			<!-- 	<form class="form-inline"> -->
 					<%= form_for @upload, url: upload_index_path, class: "form-inline", multipart: true do |f| %>
 
+
 						<div class="form-group">
 							<%= f.label :file %>
 							<%= f.file_field :upload_file_name, class: 'form-control'%>
@@ -11,6 +12,5 @@
 
 					  <%= f.submit 'Upload', class: 'btn btn-default' %>
 					<% end %>
-				<!-- </form> -->
 	</div>
 </div>
