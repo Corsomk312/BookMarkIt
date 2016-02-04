@@ -16,13 +16,10 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Register Here!</h4>
       </div>
-      <div class="modal-body">
-        <%= render 'users/new' %>
-      </div>
+        <div class="modal-body">
+          <%= render 'users/new' %>
+        </div>
 
-
-
-      </div>
     </div>
   </div>
 </div>
@@ -31,49 +28,46 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <div class="container">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                  <i class="fa fa-bars"></i>
-              </button>
-              <a class="navbar-brand page-scroll" href="#page-top">
-                  <%= link_to "<i class'fa fa-play-circle'></i><span class='light'>Bookmark</span> It!".html_safe, :root %>
-              </a>
-          </div>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"><i class="fa fa-bars"></i></button>
+          <a class="navbar-brand page-scroll" href="#page-top">
+              <%= link_to "<i class'fa fa-play-circle'></i><span class='light'>Bookmark</span> It!".html_safe, :root %>
+          </a>
+      </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-              <div class="pull-right">
-      <ul class="nav navbar-nav">
-        <% if session[:user_id] %>
-          <!-- <li><%= link_to "Home", :root %></li> -->
-          <li><%= link_to "Profile (#{current_user.username})", User.find(session[:user_id]) %></li>
-          <li><%= link_to "Upload", :new_upload %></li>
-          <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
-        <% else %>
-          <!-- <li><%= link_to "Home", :root %></li> -->
-          <!-- <li><%= link_to "Register", :new_user %></li> -->
-      </ul>
-    </div>
-
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <!-- <div class="pull-right"> -->
+          <ul class="nav navbar-nav">
+            <% if session[:user_id] %>
+              <!-- <li><%= link_to "Home", :root %></li> -->
+              <li><%= link_to "Profile (#{current_user.username})", User.find(session[:user_id]) %></li>
+              <li><%= link_to "Upload", :new_upload %></li>
+              <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
+            <% else %>
+              <!-- <li><%= link_to "Home", :root %></li> -->
+              <!-- <li><%= link_to "Register", :new_user %></li> -->
+          </ul>
+        <div id="navbar" class="navbar-collapse collapse">
           <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
-            <div class="form-group">
-              <%= f.text_field :username, placeholder: "username", class: "form-control" %>
-              <%= f.password_field :password, placeholder: "password", class: "form-control" %>
-            </div>
+          <div class="form-group">
+            <%= f.text_field :username, placeholder: "username", class: "form-control" %>
+            <%= f.password_field :password, placeholder: "password", class: "form-control" %>
+          </div>
             <%= f.submit "Login", class: "btn btn-success" %>
+
             <% if !session[:user_id] %>
-              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
             Register
-                </button>
-
-
+            </button>
             <% end %>
-          <% end %>
-        <% end %>
-    </div>
-  </div>
-</nav>
+            <% end %>
+            <% end %>
+          </div>
+      </div>
+    </div><!--/. container -->
+  </nav>
 
 
 
