@@ -19,7 +19,10 @@
 @import "bootstrap";
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-
+.col-md-8.col-md-offset-2 {
+  background-color: rgba(0,0,0,0.5);
+  padding: 45px 0 45px 0;
+}
 #padding-top { padding-top: 60px; }
 li.display { list-style-type: none; }
 /*=======================
