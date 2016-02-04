@@ -4,9 +4,11 @@
 h3.bookmark-title {
   padding-top: 10px;
   padding-left: 15px;
+  text-transform: capitalize;
+
 }
 
-h3.fo
+
 
 
 body {
@@ -187,7 +189,7 @@ Website information
 }
 
 .list-name {
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight:700;
   padding-left:10px;
   padding-bottom:5px;
@@ -205,6 +207,7 @@ Website information
   margin: 0 0 2px;
   padding-top: 5px;
   font-size: 1.4em;
+  text-transform: capitalize;
 }
 
 .details header .site-info {
