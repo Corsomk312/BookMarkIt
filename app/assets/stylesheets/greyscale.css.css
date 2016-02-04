@@ -32,7 +32,7 @@ p {
       line-height: 1.6; } }
 
 a {
-  color: #42DCA3;
+  color: grey;
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out; }
@@ -99,7 +99,7 @@ a {
   padding: 100px 0;
   text-align: center;
   color: white;
-  background: url(../assets/images/intro-bg.jpg) no-repeat bottom center scroll;
+  background: url(image-path("intro-bg.jpg")) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -194,7 +194,7 @@ a {
 
 @media (min-width: 767px) {
   .content-section {
-    padding-top: 250px; }
+    /*padding-top: 250px;*/ }
 
   .download-section {
     padding: 100px 0; }

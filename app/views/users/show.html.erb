@@ -4,7 +4,7 @@
 <h3>
   <section class="stats">
     <%= render 'shared/following_stats' %>
-    <%= render 'shared/follow_form' if current_user %>s
+    <%= render 'shared/follow_form' if current_user %>
   </section>
 </h3>
 
@@ -51,16 +51,16 @@
                 <% end %>
               </div>
             </div>
-            <% list.bookmarks.take(6).each do |bookmark| %>
               <ul class="book-list">
+                <% list.bookmarks.take(6).each do |bookmark| %>
                 <li>
                   <a href="<%= bookmark.url %>" target="_blank">
 
                   <%= truncate(bookmark.name.capitalize, length: 25, separator: ' ') %>
                   </a>
                 </li>
-              </ul>
             <% end %>
+              </ul>
         </div>
       </div>
     <% end %>
