@@ -28,9 +28,13 @@
 
 /*edit profile*/
 #create-user label {
+  color: black;
+  padding-top: 5px;
+}
+
+#bookmark-form label {
   color: white;
   padding-top: 5px;
-
 }
 
 
@@ -46,6 +50,8 @@ li.display { list-style-type: none; }
 
 Edit and delete for user's bookmarks
 ==========================*/
+.edit-list { padding-top: 40px; }
+
 a.btn.btn-primary.spaced {
   margin: 5px 0 5px 0;
 }
