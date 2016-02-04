@@ -6,13 +6,13 @@
         <div class="form-group">
           <%= form_for @user, method: "patch", html: {id: "create-user"} do |f| %>
           <div class="form-group">
-            <%= f.text_field :email, class: 'form-control' %>
+            <%= f.text_field :email, class: 'form-control', placeholder: "Email" %>
           </div>
           <div class="form-group">
-            <%= f.text_field :first_name, class: 'form-control' %>
+            <%= f.text_field :first_name, class: 'form-control', placeholder: "First Name" %>
           </div>
           <div class="form-group">
-            <%= f.text_field :last_name, class: 'form-control' %>
+            <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
           </div>
             <%= f.submit "Update", class: 'btn btn-default' %>
           <% end %>
