@@ -14,6 +14,4 @@ class GetThumbnails
     new_snapshot.save! # snapshot.save
   end
 
-
-
 end

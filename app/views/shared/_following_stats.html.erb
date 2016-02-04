@@ -7,8 +7,13 @@
     following |
 
     <span class ="followers">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    followers</span>
+      <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      <% if @user.followers.count == 1 %>
+        follower
+      <% else %>
+        followers
+      <% end %>
+    </span>
 </div>
