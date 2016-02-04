@@ -43,11 +43,6 @@ a.top-corner {
   font-size: 1.8em;
 }
 
-.pull-right {
-  margin-top:;
-  padding-right: 20px;
-  font-size:.75em;
-}
 
 .fa-pencil-square-o {
   color:black;
@@ -125,4 +120,19 @@ h3 {
 .users-index {
   margin-top: 20px;
   margin-left: 30px;
+}
+
+.pull-right {
+  float: right;
+  padding-right: 20px;
+  font-size:.75em;
+}
+
+.list-author {
+  margin-left: 50px;
+  float: left;
+}
+
+.test-class {
+  margin-top: -5%;
 }
