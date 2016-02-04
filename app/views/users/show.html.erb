@@ -4,41 +4,24 @@
 <h3>
   <section class="stats">
     <%= render 'shared/following_stats' %>
-    <%= render 'shared/follow_form' if current_user %>s
+    <%= render 'shared/follow_form' if current_user %>
   </section>
-
 </h3>
-<div class="dropdown pull-right role="group">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li class="dropdown-header">Sort folders</li>
-    <li><%= link_to "Alphabetically", :action => "show", :sort => "name" %></li>
-    <li><%= link_to "By number of links", :action => "show", :sort => "size" %></li>
-    <li><%= link_to "By popularity", :action => "show", :sort => "popularity" %></li>
-    <li><%= link_to "By default", :action => "show", :sort => "age" %></li>
-    <li role="separator" class="divider"></li>
-    <li><%= link_to "Create new folder", :controller => "lists", :action => "new" %></li>
-    <li><%= link_to "Edit your profile", :action => "edit" %></li>
-  </ul>
-</div>
-</div>
 
-
-      <div class="dropdown pull-right role="group">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Options
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li class="dropdown-header">Sort folders</li>
-          <li><%= link_to "Alphabetically", :action => "show", :sort => "name" %></li>
-          <li><%= link_to "By number of links", :action => "show", :sort => "size" %></li>
-          <li><%= link_to "By popularity", :action => "show", :sort => "popularity" %></li>
-          <li><%= link_to "By default", :action => "show", :sort => "age" %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Create new folder", :controller => "lists", :action => "new" %></li>
-          <li><%= link_to "Edit your profile", :action => "edit" %></li>
-        </ul>
-      </div>
+  <div class="dropdown pull-right role="group">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Options
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li class="dropdown-header">Sort folders</li>
+      <li><%= link_to "Alphabetically", :action => "show", :sort => "name" %></li>
+      <li><%= link_to "By number of links", :action => "show", :sort => "size" %></li>
+      <li><%= link_to "By popularity", :action => "show", :sort => "popularity" %></li>
+      <li><%= link_to "By default", :action => "show", :sort => "age" %></li>
+      <li role="separator" class="divider"></li>
+      <li><%= link_to "Create new folder", :controller => "lists", :action => "new" %></li>
+      <li><%= link_to "Edit your profile", :action => "edit" %></li>
+    </ul>
+  </div>
 
 
 
@@ -50,7 +33,7 @@
     <li class="display">
       <div class="website" onclick="return true">
         <div class="folder">
-          <h3><%= truncate(list.name.capitalize, length: 18, separator: ' ') %></h3>
+          <h3 class="bookmark-title"><%= truncate(list.name.capitalize, length: 18, separator: ' ') %></h3>
           <div class="folder-image">
           </div>
         </div>
@@ -68,16 +51,16 @@
                 <% end %>
               </div>
             </div>
-            <% list.bookmarks.take(6).each do |bookmark| %>
               <ul class="book-list">
+                <% list.bookmarks.take(6).each do |bookmark| %>
                 <li>
                   <a href="<%= bookmark.url %>" target="_blank">
 
                   <%= truncate(bookmark.name.capitalize, length: 25, separator: ' ') %>
                   </a>
                 </li>
-              </ul>
             <% end %>
+              </ul>
         </div>
       </div>
     <% end %>
