@@ -133,6 +133,31 @@ h3 {
   margin-top: 10px;
 }
 
+#user-table {
+  margin-left: 4%;
+  font-size: 1.5em;
+}
+
+.space {
+  width: 10px;
+}
+
+.big-space {
+  width: 20px;
+}
+
+.right-td {
+  text-align: right;
+}
+
+.mint-green {
+  color: #42dca3;
+}
+
+.mint-green:hover {
+  color: white;
+}
+
 .no-bullet {
   list-style-type: none;
 }
