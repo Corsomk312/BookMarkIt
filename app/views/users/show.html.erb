@@ -8,7 +8,7 @@
   </section>
 </h3>
 
-  <div class="dropdown pull-right role="group">
+  <div class="dropdown pull-right" role="group">
     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Options
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
@@ -41,13 +41,15 @@
             <div class="list-name">
               <%= list.name.capitalize %>
               <div class="pull-right">
-                <% if current_user.id == @user.id %>
-                <ul>
-                  <li><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, {action: :edit, id: list.id, controller: "lists"}, method: "get" %></li>
-                  <li><%= link_to '<i class="fa fa-ban"></i>'.html_safe, {action: :destroy, id: list.id, controller: "lists"}, method: "delete" %></li>
-                <% else %>
-                  <%= link_to '<i class="fa fa-plus"></i>'.html_safe, {action: :create, list: {list_to_dup: list}, controller: "lists"}, class: "top-corner", :method => "post" %>
-                </ul>
+                <% if current_user %>
+                  <% if current_user.id == @user.id %>
+                  <ul>
+                    <li><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, {action: :edit, id: list.id, controller: "lists"}, method: "get" %></li>
+                    <li><%= link_to '<i class="fa fa-ban"></i>'.html_safe, {action: :destroy, id: list.id, controller: "lists"}, method: "delete" %></li>
+                  <% else %>
+                    <%= link_to '<i class="fa fa-plus"></i>'.html_safe, {action: :create, list: {list_to_dup: list}, controller: "lists"}, class: "top-corner", :method => "post" %>
+                  </ul>
+                  <% end %>
                 <% end %>
               </div>
             </div>
