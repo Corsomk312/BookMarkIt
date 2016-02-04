@@ -2,14 +2,12 @@
 <div class="container">
   <h2>Rename folder</h2>
 
-  <form>
-    <div class="form-group">
-      <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
-        <%= f.text_field :name, placeholder: "#{@list.name}" %>
-        <%= f.submit "Update", class: "btn btn-default" %>
-      <% end %>
-    </div>
-  </form>
+  <div class="form-group">
+    <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
+      <%= f.text_field :name, placeholder: "#{@list.name}" %>
+      <%= f.submit "Update", class: "btn btn-default" %>
+    <% end %>
+  </div>
 
   <h2>Update folder contents</h2>
   <div id="add-bookmark">
