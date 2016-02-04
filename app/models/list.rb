@@ -6,6 +6,10 @@ class List < ActiveRecord::Base
   validates :creator_id, presence: true
   validates :name, presence: true
 
+  def total_bookmarks
+    self.saved_bookmarks.count
+  end
+
   def bookmarks_by_name
     self.bookmarks.sort_by {|bookmark| bookmark.name.downcase}
   end
