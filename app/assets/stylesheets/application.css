@@ -26,8 +26,12 @@
   margin-top: 20px;
   }
 
-/*login */
-/*.navbar-form { margin-top: -4px; }*/
+/*edit profile*/
+#create-user label {
+  color: white;
+  padding-top: 5px;
+
+}
 
 
 

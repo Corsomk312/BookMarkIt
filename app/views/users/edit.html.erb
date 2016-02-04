@@ -2,22 +2,20 @@
   <div class="row">
     <h2>Edit your profile</h2>
     <div class="col-md-3">
-      <form>
-        <div class="form-group">
+
           <%= form_for @user, method: "patch", html: {id: "create-user"} do |f| %>
-          <div class="form-group">
+            <%= f.label :email %>
             <%= f.text_field :email, class: 'form-control' %>
-          </div>
-          <div class="form-group">
+
+            <%= f.label :first_name %>
             <%= f.text_field :first_name, class: 'form-control' %>
-          </div>
-          <div class="form-group">
+
+            <%= f.label :last_name %>
             <%= f.text_field :last_name, class: 'form-control' %>
-          </div>
+            <br>
             <%= f.submit "Update", class: 'btn btn-default' %>
           <% end %>
-        </div>
-      </form>
+
     </div>
   </div>
 </div>

@@ -51,10 +51,8 @@
           </ul>
         <div id="navbar" class="navbar-collapse collapse">
           <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
-          <div class="form-group">
             <%= f.text_field :username, placeholder: "username", class: "form-control" %>
             <%= f.password_field :password, placeholder: "password", class: "form-control" %>
-          </div>
             <%= f.submit "Login", class: "btn btn-success" %>
 
             <% if !session[:user_id] %>
