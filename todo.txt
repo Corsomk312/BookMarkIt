@@ -1,1 +1,1 @@
-Add feature: empty folders are visible
+Add feature: entire list box is clickable, not just title (users#show)
