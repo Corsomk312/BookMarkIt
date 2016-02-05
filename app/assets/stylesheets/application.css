@@ -26,15 +26,71 @@
   text-overflow: ellipsis;
 }
 
+.lift-up {
+  position: absolute;
+  top: 4%;
+  left: 68%;
+}
+
+.mar-left-1 {
+  margin-left: 1%;
+}
+
+.bookmark-table table {
+  table-layout: fixed;
+}
+
+.bookmark-table td {
+  font-size: 1.5em;
+  overflow: hidden;
+}
+
+.table-delete-btn th, td {
+  overflow: hidden;
+  width: 5em;
+}
+
+.bkmk-name th, td {
+  overflow: hidden;
+  width: 25em;
+  text-align:left;
+}
+
+.mar-left-25 {
+  margin-left:25%;
+}
+
+.edit-name {
+  float: left !important;
+  width:30%;
+  margin-right: 2%;
+  font-size: 1.5em;
+  font-weight:500;
+  color: black;
+}
+
+.edit-folder {
+  margin-top:1%;
+  margin-bottom:1%;
+  margin-right:5%;
+}
 
 /*logo */
 #logo {
   display: inline;
   font-size: 1.5em;
-  font-weight: 700; 
+  font-weight: 700;
 text-shadow: 7px 7px 18px rgba(152, 150, 150, 1);}
 
+.container {
+  width: 87%;
+}
 
+.folder-count {
+  text-align: right;
+  margin-top:5%;
+  margin-right: 5%;
+}
 
 /* Modal */
 .modal-title {color: black;}

@@ -1,27 +1,25 @@
 
 
-<div class="container edit-list">
-  <div class="row">
+<div class="container">
+  <div class="row page-header">
     <div class="col-lg-9">
-      <h2>Rename folder</h2>
-      <div class="col-md-3">
-        <div class="form-group">
-          <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
-            <%= f.text_field :name, placeholder: "#{@list.name}", class: "form-control" %>
-            <br>
-            <%= f.submit "Update", class: "btn btn-default" %>
-          <% end %>
+      <h2>Update folder contents</h2>
         </div>
       </div>
     </div>
 
 
-    <div class="row">
-      <div class="col-md-3">
-        <h2>Update folder contents</h2>
-        <div id="add-bookmark">
-          <button id="bookmark-button" class="btn btn-default">Add New Bookmark</button>
-          <br>
+    <div class="container ">
+      <div class="col-md-8 edit-folder">
+          <%= form_for @list, method: "patch", html: {id: "edit-list"} do |f| %>
+            <%= f.text_field :name, placeholder: "#{@list.name}", class: "form-control edit-name" %>
+            <%= f.submit "Rename folder", class: "btn btn-default" %>
+            <button id="bookmark-button" class="btn btn-default mar-left-25">Add New Bookmark</button>
+          <% end %>
+      </div>
+      <br>
+
+      <div class="edit-list">
           <div class="col-md-2">
             <%= form_for :bookmark, url: list_bookmarks_path(@list), html: {id: "bookmark-form"} do |f| %>
             <%= f.label :name %>
@@ -31,24 +29,25 @@
             <br>
             <%= f.submit "Add", class: "btn btn-default" %>
             <% end %>
-          </div>
-        </div>
       </div>
     </div>
+
+    <br>
+
+    <div col="col-md-6" class="mar-left-1">
+      <% @list.saved_bookmarks.each do |saved_bookmark| %>
+      <table class="bookmark-table">
+      <tr>
+        <td><%= link_to "Delete", {action: :destroy, list_id: @list.id, saved_bookmark_id: saved_bookmark.id, controller: "saved_bookmarks"}, :method => :delete, class: "mint-green table-delete-btn" %></td>
+        <td class="bkmk-name"><%= saved_bookmark.bookmark.name %></td>
+      </tr>
+    </table>
+      <% end %>
+
+  <br>
+  <div class="mar-left-50">
+
+  </div>
   </div>
 
-<br>
-  <div class="row">
-    <div col="col-md-3">
-      <h2>Bookmarks</h2>
-     <!--  <div class="col-md-4"> -->
-      <% @list.saved_bookmarks.each do |saved_bookmark| %>
-      <ul>
-        <li><%= saved_bookmark.bookmark.name %>
-        <%= link_to "| Delete", {action: :destroy, list_id: @list.id, saved_bookmark_id: saved_bookmark.id, controller: "saved_bookmarks"}, :method => :delete %></li>
-      </ul>
-      <% end %>
-   <!--  </div> -->
-  </div>
-  </div>
 </div>
