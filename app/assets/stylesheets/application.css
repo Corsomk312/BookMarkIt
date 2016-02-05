@@ -19,6 +19,10 @@
 @import "bootstrap";
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
+/*logged in menu*/
+
+
+
 /*logo */
 #logo {
   display: inline;
