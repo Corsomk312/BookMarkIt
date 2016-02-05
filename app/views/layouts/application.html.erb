@@ -32,7 +32,7 @@
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"><i class="fa fa-bars"></i></button>
           <a class="navbar-brand page-scroll" href="#page-top">
-              <%= link_to "<i class'fa fa-play-circle'></i><span class='light'>Bookmark</span> It!".html_safe, :root %>
+              <%= link_to "<i class'fa fa-play-circle'></i><div id='logo'><span class='light'>Bookmark</span> It!</div>".html_safe, :root %>
           </a>
       </div>
 
@@ -41,27 +41,26 @@
         <!-- <div class="pull-right"> -->
           <ul class="nav navbar-nav">
             <% if session[:user_id] %>
-              <!-- <li><%= link_to "Home", :root %></li> -->
+             
               <li><%= link_to "Profile (#{current_user.username})", User.find(session[:user_id]) %></li>
               <li><%= link_to "Upload", :new_upload %></li>
               <li> <%= link_to "Logout", logout_path, method: "delete" %></li>
-            <% else %>
-              <!-- <li><%= link_to "Home", :root %></li> -->
-              <!-- <li><%= link_to "Register", :new_user %></li> -->
-          </ul>
-        <div id="navbar" class="navbar-collapse collapse">
-          <%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %>
-            <%= f.text_field :username, placeholder: "username", class: "form-control" %>
-            <%= f.password_field :password, placeholder: "password", class: "form-control" %>
-            <%= f.submit "Login", class: "btn btn-success" %>
-
+           
+          <% else %>
+          <li><%= form_for :session, url: login_path, html: {class: "navbar-form navbar-right"} do |f| %></li>
+            <li><%= f.text_field :username, placeholder: "username", class: "form-control" %></li>
+            <li><%= f.password_field :password, placeholder: "password", class: "form-control" %></li>
+            <li><%= f.submit "Login", class: "btn btn-success" %></li>
+            <% end %>
+            
             <% if !session[:user_id] %>
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
             Register
             </button>
             <% end %>
             <% end %>
-            <% end %>
+           
+            </ul>
           </div>
       </div>
     </div><!--/. container -->

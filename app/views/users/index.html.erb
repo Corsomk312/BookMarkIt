@@ -1,5 +1,11 @@
-<div class="users-index">
+<div class="container-cubes">
+
+ <div class="page-header">
   <h3>All Users</h3>
+    <div class="list-author">
+      <h5><%= link_to "Back to Profile", current_user %></h5>
+    </div>
+  </div>
   <table id="user-table">
     <% @users.each do |user| %>
       <tr>
