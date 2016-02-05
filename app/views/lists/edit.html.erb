@@ -38,7 +38,7 @@
       <% @list.saved_bookmarks.each do |saved_bookmark| %>
       <table class="bookmark-table">
       <tr>
-        <td><%= link_to "Delete", {action: :destroy, list_id: @list.id, saved_bookmark_id: saved_bookmark.id, controller: "saved_bookmarks"}, :method => :delete, class: "mint-green table-delete-btn" %></td>
+        <td class="not-so-wide"><%= link_to "Delete", {action: :destroy, list_id: @list.id, saved_bookmark_id: saved_bookmark.id, controller: "saved_bookmarks"}, :method => :delete, class: "mint-green table-delete-btn" %></td>
         <td class="bkmk-name"><%= saved_bookmark.bookmark.name %></td>
       </tr>
     </table>

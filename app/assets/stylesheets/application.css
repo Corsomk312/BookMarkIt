@@ -52,8 +52,12 @@
 
 .bkmk-name th, td {
   overflow: hidden;
-  width: 25em;
+  width: 50em;
   text-align:left;
+}
+
+.not-so-wide {
+  width: 5em;
 }
 
 .mar-left-25 {
