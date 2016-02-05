@@ -18,8 +18,10 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery-1.12.0.min
+//= require jquery.easing.min
 //= require greyscale
-//= require jquery.easing.min.js
+
 //= require bootstrap
 //= require three.min
 //= require css3drenderer

@@ -1,5 +1,6 @@
 <div class="container-cubes">
 <div class="row">
+<div class="page-header">
 <h2><%= @user.full_name || @user.username %>'s Folders</h2>
 <h3>
   <section class="stats">
@@ -22,6 +23,7 @@
       <li><%= link_to "Edit your profile", :action => "edit" %></li>
     </ul>
   </div>
+  </div>
 
 
 
@@ -33,12 +35,15 @@
         <div class="folder">
           <h3 class="bookmark-title"><%= truncate(list.name.capitalize, length: 18, separator: ' ') %></h3>
           <div class="folder-image">
+            <div class = "folder-count">
+              <h4><%= list.bookmarks.count %></h4>
+            </div>
           </div>
         </div>
         <div class="details folder-list">
             <div class="list-name">
               <%= link_to list.name.capitalize, list %>
-              <div class="pull-right">
+              <div class="pull-right lift-up">
                 <% if current_user %>
                   <% if current_user.id == @user.id %>
                   <ul>

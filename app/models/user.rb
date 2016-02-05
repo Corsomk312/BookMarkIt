@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships
 
-
-
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
@@ -24,8 +22,23 @@ class User < ActiveRecord::Base
     "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
-  def total_bookmarks
-    self.lists.inject(0) {|sum, list| sum + list.saved_bookmarks.count}
+  # def get_info
+  #   bookmarks = self.bookmarks.count
+  #   followers = self.followers.count
+
+  #   if bookmarks == 1
+  #     followers == 1 ? "#{bookmarks} bookmark | #{followers} follower" : "#{bookmarks} bookmark | #{followers} followers"
+  #   else
+  #     followers == 1 ? "#{bookmarks} bookmarks | #{followers} follower" : "#{bookmarks} bookmarks | #{followers} followers"
+  #   end
+  # end
+
+  def bookmarks_label
+    self.bookmarks.count == 1 ? "bookmark" : "bookmarks"
+  end
+
+  def followers_label
+    self.followers.count == 1 ? "follower" : "followers"
   end
 
   def lists_by_age

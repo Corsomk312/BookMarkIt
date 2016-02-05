@@ -117,7 +117,7 @@ a {
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out;
         &.top-nav-collapse {
-            padding: 0;
+            padding: 15px 0 0 0;
             background: black;
             border-bottom: 1px solid rgba(white, 0.3);
         }
