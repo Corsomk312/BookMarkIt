@@ -67,6 +67,7 @@ a.btn.btn-primary.spaced {
 
 .container-cubes {
   margin-left:8%;
+  margin-right:8%;
 }
 
 a.top-corner {
@@ -187,7 +188,8 @@ h3 {
 }
 
 .list-author a {
-  margin-left: 50px;
+  /*margin-left: 50px;*/
+  margin-top: -20px;
   float: left;
   color: #42dca3;
 }
