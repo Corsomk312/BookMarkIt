@@ -2,6 +2,7 @@
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 h3.bookmark-title {
+  font-size:1.6em;
   padding-top: 7%;
   padding-left: 10%;
   text-transform: capitalize;
@@ -214,9 +215,9 @@ Website information
 }
 
 .details p {
-  padding-left: 5px; 
+  padding-left: 5px;
   margin: 2px 0 0;
-  font-size: 1.5em; 
+  font-size: 1.5em;
   color: #353535;
   line-height: 1.1em;
 }
