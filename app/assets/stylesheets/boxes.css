@@ -214,11 +214,11 @@ Website information
 }
 
 .details p {
-  padding: 1.2em 1.4em;
+  padding-left: 5px; 
   margin: 2px 0 0;
-  font-weight: 700;
-  color: #666;
-  line-height: 1.4em;
+  font-size: 1.5em; 
+  color: #353535;
+  line-height: 1.1em;
 }
 
 /*************************************
