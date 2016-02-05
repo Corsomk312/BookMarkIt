@@ -120,8 +120,8 @@ h3 {
 }
 
 .dropdown {
-  margin-top: -2%;
-  margin-right: 2%;
+  margin-top: -3%;
+  /*margin-right: 2%;*/
 }
 
 .btn-primary {
@@ -183,7 +183,7 @@ h3 {
 
 .pull-right {
   float: right;
-  padding-right: 20px;
+  /*padding-right: 20px;*/
   font-size:.75em;
 }
 
