@@ -50,8 +50,8 @@
                     <li><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, {action: :edit, id: list.id, controller: "lists"}, method: "get" %></li>
                     <li><%= link_to '<i class="fa fa-ban"></i>'.html_safe, {action: :destroy, id: list.id, controller: "lists"}, method: "delete" %></li>
                   <% else %>
-                    <%= link_to '<i class="fa fa-plus"></i>'.html_safe, {action: :create, list: {list_to_dup: list}, controller: "lists"}, class: "top-corner", :method => "post" %>
                   </ul>
+                  <%= link_to '<i class="fa fa-plus"></i>'.html_safe, {action: :create, list: {list_to_dup: list}, controller: "lists"}, class: "top-corner align-right", :method => "post" %>
                   <% end %>
                 <% end %>
               </div>

@@ -138,12 +138,15 @@ a.btn.btn-primary.spaced {
   margin-right:8%;
 }
 
-a.top-corner {
-  position: relative;
-  top: 20px;
+.top-corner a {
   font-size: 1.8em;
 }
 
+.align-right a {
+  position:absolute;
+  top: 0;
+  left:99%;
+}
 
 .fa-pencil-square-o {
   color:black;
